@@ -1,0 +1,54 @@
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap");
+
+.App {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #00d7b0;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #73ed8f;
+  border-bottom: 2px black solid;
+}
+
+#logo {
+  padding: 10px;
+  margin-right: 5px;
+  border: 3px solid black;
+  border-radius: 50%;
+  background-color: white;
+}
+
+h1 {
+  font-size: 50px;
+  font-family: "Indie Flower", cursive;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.buttons button {
+  height: 120px;
+  width: 240px;
+  background-color: #009fd6;
+  margin-top: 100px;
+  font-family: "Indie Flower", cursive;
+  font-size: 30px;
+  border: 2px black solid;
+  transition: all 0.4s ease 0s;
+}
+
+.buttons button:hover {
+  background: #385bac;
+  color: white;
+  width: 280px;
+  letter-spacing: 3px;
+  transition: all 0.4s ease 0s;
+}
