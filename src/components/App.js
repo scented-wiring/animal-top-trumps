@@ -1,5 +1,6 @@
 import "../styles/App.css";
 import Home from "../components/Home";
+import CreateCards from "../components/CreateCards";
 import { Switch, Route } from "react-router-dom";
 import logo from "../dog.png";
 
@@ -12,6 +13,7 @@ function App() {
       </div>
       <Switch>
         <Route exact path="/" component={Home} />
+        <Route exact path="/createcards" component={CreateCards} />
       </Switch>
     </div>
   );

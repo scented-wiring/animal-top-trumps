@@ -1,0 +1,56 @@
+.CreateCards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h2 {
+  font-size: 22px;
+}
+
+.createCardsForm {
+  width: 250px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  background-color: #00bdcb;
+  border: 3px black dashed;
+}
+
+label {
+  display: grid;
+  font-size: 25px;
+}
+
+.CreateCards select,
+input {
+  margin-bottom: 10px;
+}
+
+.selectNumber {
+  width: 100px;
+}
+
+.CreateCards button {
+  align-self: center;
+  height: 30px;
+  width: 100px;
+  background-color: #73ed8f;
+  margin-top: 10px;
+  font-family: "Indie Flower", cursive;
+  font-size: 20px;
+  border: 2px black solid;
+  transition: all 0.4s ease 0s;
+}
+
+.CreateCards button:hover {
+  background: #385bac;
+  color: white;
+  width: 120px;
+  letter-spacing: 3px;
+  transition: all 0.4s ease 0s;
+}
+
+.note {
+  font-size: 20px;
+}

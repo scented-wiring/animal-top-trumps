@@ -2,6 +2,7 @@
   height: 100%;
   display: flex;
   flex-direction: column;
+  flex: 1;
   background-color: #00d7b0;
 }
 
@@ -23,5 +24,4 @@
 
 h1 {
   font-size: 50px;
-  font-family: "Indie Flower", cursive;
 }
