@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Staatliches&display=swap");
 
 html {
   height: 100%;
@@ -8,7 +8,7 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
-  font-family: "Indie Flower", cursive;
+  font-family: "Montserrat", sans-serif;
 }
 
 #root {

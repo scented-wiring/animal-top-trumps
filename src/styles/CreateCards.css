@@ -5,21 +5,31 @@
 }
 
 h2 {
-  font-size: 22px;
+  font-size: 30px;
+  font-family: "Staatliches", sans-serif;
+  transition: all 0.4s ease 0s;
+}
+
+h2:hover {
+  transition: all 0.4s ease 0s;
+  color: white;
+  letter-spacing: 3px;
 }
 
 .createCardsForm {
   width: 250px;
-  padding: 20px;
+  padding: 20px 30px 20px 30px;
+  margin-bottom: 10px;
   display: flex;
   flex-direction: column;
   background-color: #00bdcb;
-  border: 3px black dashed;
+  border: 3px black solid;
+  border-radius: 30px;
 }
 
 label {
   display: grid;
-  font-size: 25px;
+  font-size: 20px;
 }
 
 .CreateCards select,
@@ -37,7 +47,7 @@ input {
   width: 100px;
   background-color: #73ed8f;
   margin-top: 10px;
-  font-family: "Indie Flower", cursive;
+  font-family: "Staatliches", sans-serif;
   font-size: 20px;
   border: 2px black solid;
   transition: all 0.4s ease 0s;
@@ -52,5 +62,5 @@ input {
 }
 
 .note {
-  font-size: 20px;
+  font-size: 25px;
 }
