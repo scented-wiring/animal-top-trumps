@@ -1,21 +1,21 @@
 import { render } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
-import App from "../components/App";
+import Home from "../components/Home";
 
 test("renders correctly", () => {
   const { asFragment } = render(
     <BrowserRouter>
-      <App />
+      <Home />
     </BrowserRouter>
   );
   expect(asFragment).toMatchSnapshot();
 });
 
-test("renders the page title", () => {
-  const { getByText } = render(
+test("renders two buttons", () => {
+  const { getAllByRole } = render(
     <BrowserRouter>
-      <App />
+      <Home />
     </BrowserRouter>
   );
-  expect(getByText("Animal Top Trumps")).toBeInTheDocument();
+  expect(getAllByRole("button")).toHaveLength(2);
 });

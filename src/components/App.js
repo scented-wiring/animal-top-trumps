@@ -1,4 +1,6 @@
 import "../styles/App.css";
+import Home from "../components/Home";
+import { Switch, Route } from "react-router-dom";
 import logo from "../dog.png";
 
 function App() {
@@ -8,10 +10,9 @@ function App() {
         <img id="logo" src={logo} alt="Logo" width="70px" height="70px" />
         <h1>Animal Top Trumps</h1>
       </div>
-      <div className="buttons">
-        <button type="button">Play</button>
-        <button type="button">Create Cards</button>
-      </div>
+      <Switch>
+        <Route exact path="/" component={Home} />
+      </Switch>
     </div>
   );
 }
