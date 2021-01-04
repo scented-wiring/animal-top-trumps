@@ -60,7 +60,7 @@ input {
 }
 
 .CreateCards button:hover {
-  background: #385bac;
+  background: black;
   color: white;
   width: 120px;
   letter-spacing: 3px;

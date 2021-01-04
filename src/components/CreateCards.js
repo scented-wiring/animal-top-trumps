@@ -2,6 +2,7 @@ import "../styles/CreateCards.css";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import Alert from "../components/Alert";
 
 function CreateCards() {
   const initialState = {
@@ -13,15 +14,40 @@ function CreateCards() {
       handsome: 1,
       alignment: "",
     },
+    alert: {
+      message: "",
+      alertType: "",
+    },
   };
 
   const [fields, setFields] = useState(initialState.fields);
 
+  const [alert, setAlert] = useState(initialState.alert);
+
   const handleAddCard = (event) => {
     event.preventDefault();
-    axios.post("http://localhost:3000/cards", { ...fields }).catch((error) => {
-      console.log(error);
-    });
+    if (fields.cool + fields.largeness + fields.handsome > 25) {
+      setAlert({
+        message:
+          "Your card is too powerful! The maximum total for the numerical parameters is 25.",
+        alertType: "Error",
+      });
+    } else {
+      axios
+        .post("http://localhost:3000/cards", { ...fields })
+        .then(() =>
+          setAlert({
+            message: "Card created.",
+            alertType: "Success",
+          })
+        )
+        .catch(() => {
+          setAlert({
+            message: "Could not connect to the server.",
+            alertType: "Error",
+          });
+        });
+    }
   };
 
   const handleFieldChange = (event) => {
@@ -35,10 +61,22 @@ function CreateCards() {
     }
   };
 
+  const handleAlertPress = () => {
+    setAlert({
+      message: "",
+      alertType: "",
+    });
+  };
+
   return (
     <div className="CreateCards">
       <h2>Card Creator</h2>
       <form className="createCardsForm" onSubmit={handleAddCard}>
+        <Alert
+          message={alert.message}
+          alertType={alert.alertType}
+          onAlertPress={handleAlertPress}
+        />
         <label htmlFor="name">
           Name*
           <input
