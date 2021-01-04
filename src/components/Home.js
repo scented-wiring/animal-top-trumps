@@ -1,7 +1,7 @@
 import "../styles/Home.css";
 import { Link } from "react-router-dom";
 
-function Home() {
+const Home = () => {
   return (
     <div className="home">
       <div className="buttons">
@@ -12,6 +12,6 @@ function Home() {
       </div>
     </div>
   );
-}
+};
 
 export default Home;

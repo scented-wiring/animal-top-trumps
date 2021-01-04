@@ -1,6 +1,6 @@
 import "../styles/Alert.css";
 
-function Alert({ message, alertType, onAlertPress }) {
+const Alert = ({ message, alertType, onAlertPress }) => {
   if (!message) return null;
 
   return (
@@ -12,6 +12,6 @@ function Alert({ message, alertType, onAlertPress }) {
       </button>
     </div>
   );
-}
+};
 
 export default Alert;

@@ -4,7 +4,7 @@ import CreateCards from "../components/CreateCards";
 import { Link, Switch, Route } from "react-router-dom";
 import logo from "../dog.png";
 
-function App() {
+const App = () => {
   return (
     <div className="App">
       <div className="title">
@@ -21,6 +21,6 @@ function App() {
       </Switch>
     </div>
   );
-}
+};
 
 export default App;

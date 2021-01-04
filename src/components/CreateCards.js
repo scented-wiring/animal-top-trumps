@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import Alert from "../components/Alert";
 
-function CreateCards() {
+const CreateCards = () => {
   const initialState = {
     fields: {
       name: "",
@@ -187,6 +187,6 @@ function CreateCards() {
       </Link>
     </div>
   );
-}
+};
 
 export default CreateCards;
