@@ -1,5 +1,6 @@
 import "../styles/App.css";
 import Home from "../components/Home";
+import BrowseCards from "../components/BrowseCards";
 import CreateCards from "../components/CreateCards";
 import { Link, Switch, Route } from "react-router-dom";
 import logo from "../dog.png";
@@ -17,6 +18,7 @@ const App = () => {
       </div>
       <Switch>
         <Route exact path="/" component={Home} />
+        <Route exact path="/browsecards" component={BrowseCards} />
         <Route exact path="/createcards" component={CreateCards} />
       </Switch>
     </div>

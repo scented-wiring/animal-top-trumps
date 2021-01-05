@@ -11,11 +11,11 @@ test("renders correctly", () => {
   expect(asFragment).toMatchSnapshot();
 });
 
-test("renders two buttons", () => {
+test("renders three buttons", () => {
   const { getAllByRole } = render(
     <BrowserRouter>
       <Home />
     </BrowserRouter>
   );
-  expect(getAllByRole("button")).toHaveLength(2);
+  expect(getAllByRole("button")).toHaveLength(3);
 });

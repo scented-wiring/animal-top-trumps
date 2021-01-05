@@ -4,28 +4,11 @@
   align-items: center;
 }
 
-h2 {
-  font-size: 35px;
-  font-family: "Staatliches", sans-serif;
-  transition: all 0.4s ease 0s;
-}
-
-h3 {
-  font-size: 20px;
-  font-family: "Staatliches", sans-serif;
-  transition: all 0.4s ease 0s;
-}
-
-h3:hover {
-  transition: all 0.4s ease 0s;
-  color: white;
-  letter-spacing: 3px;
-}
-
 .createCardsForm {
   width: 250px;
   padding: 20px 30px 20px 30px;
-  margin-bottom: 10px;
+  margin-top: 15px;
+  margin-bottom: 15px;
   display: flex;
   flex-direction: column;
   background-color: #00bdcb;
@@ -45,24 +28,4 @@ input {
 
 .selectNumber {
   width: 100px;
-}
-
-.CreateCards button {
-  align-self: center;
-  height: 30px;
-  width: 100px;
-  background-color: #73ed8f;
-  margin-top: 10px;
-  font-family: "Staatliches", sans-serif;
-  font-size: 20px;
-  border: 2px black solid;
-  transition: all 0.4s ease 0s;
-}
-
-.CreateCards button:hover {
-  background: black;
-  color: white;
-  width: 120px;
-  letter-spacing: 3px;
-  transition: all 0.4s ease 0s;
 }

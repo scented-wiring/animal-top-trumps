@@ -1,8 +1,8 @@
-.alert {
+.Alert {
   display: flex;
   flex-direction: column;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 20px auto 20px auto;
+  padding: 20px 0 20px 0;
   left: 0;
   right: 0;
   text-align: center;
@@ -11,17 +11,4 @@
   width: 500px;
   color: white;
   border: 2px white solid;
-}
-
-.clearAlert {
-  margin-bottom: 30px;
-  height: 30px;
-  width: 100px;
-  color: black;
-  background-color: #73ed8f;
-  margin-bottom: 30px;
-  font-family: "Staatliches", sans-serif;
-  font-size: 20px;
-  border: 2px black solid;
-  transition: all 0.4s ease 0s;
 }
