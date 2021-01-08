@@ -1,26 +1,82 @@
-import { render } from "@testing-library/react";
+import { render, unmountComponentAtNode } from "react-dom";
+import { act } from "react-dom/test-utils";
+import axios from "axios";
 import { BrowserRouter } from "react-router-dom";
 import BrowseCards from "../components/BrowseCards";
+import MockAdapter from "axios-mock-adapter";
 
-beforeAll(() => {
-  const script = document.createElement("script");
-  document.body.appendChild(script);
-});
-
-test("renders correctly", () => {
-  const { asFragment } = render(
+const renderContainer = () => {
+  render(
     <BrowserRouter>
       <BrowseCards />
-    </BrowserRouter>
+    </BrowserRouter>,
+    container
   );
-  expect(asFragment).toMatchSnapshot();
+};
+
+const fakeResponse = [
+  { id: 1, name: "Cat" },
+  { id: 2, name: "Dog" },
+  { id: 3, name: "Elephant" },
+];
+
+let container;
+
+beforeEach(() => {
+  container = document.createElement("div");
+  document.body.appendChild(container);
 });
 
-test("renders a title", () => {
-  const { getByText } = render(
-    <BrowserRouter>
-      <BrowseCards />
-    </BrowserRouter>
+afterEach(() => {
+  unmountComponentAtNode(container);
+  container.remove();
+  container = null;
+});
+
+test("renders correctly", async () => {
+  var mock = new MockAdapter(axios);
+  mock.onGet("http://localhost:3000/cards").reply(200, fakeResponse);
+
+  await act(async () => {
+    renderContainer();
+  });
+  expect(container).toMatchSnapshot();
+});
+
+test("renders an alert if API can't connect to server", async () => {
+  var mock = new MockAdapter(axios);
+  mock.onGet("http://localhost:3000/cards").reply(404);
+
+  await act(async () => {
+    renderContainer();
+  });
+
+  expect(container.textContent).toContain(
+    "Error!Could not connect to the server"
   );
-  expect(getByText("Browse Cards")).toBeInTheDocument();
+});
+
+test("renders a page title", async () => {
+  var mock = new MockAdapter(axios);
+  mock.onGet("http://localhost:3000/cards").reply(200, fakeResponse);
+
+  await act(async () => {
+    renderContainer();
+  });
+
+  expect(container.textContent).toContain("Browse Cards");
+});
+
+test("renders an option for each object fetched from the API", async () => {
+  var mock = new MockAdapter(axios);
+  mock.onGet("http://localhost:3000/cards").reply(200, fakeResponse);
+
+  await act(async () => {
+    renderContainer();
+  });
+
+  const options = container.getElementsByTagName("option");
+
+  expect(container.textContent).toContain("CatDogElephant");
+  expect(options).toHaveLength(3);
 });

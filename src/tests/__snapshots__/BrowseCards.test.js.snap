@@ -1,3 +1,39 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `[Function]`;
+exports[`renders correctly 1`] = `
+<div>
+  <div
+    class="BrowseCards"
+  >
+    <h2>
+      Browse Cards
+    </h2>
+    <div
+      class="display"
+    >
+      <select
+        class="selectCards"
+        name="selectCards"
+        size="15"
+      >
+        <option>
+          Cat
+        </option>
+        <option>
+          Dog
+        </option>
+        <option>
+          Elephant
+        </option>
+      </select>
+    </div>
+    <a
+      href="/"
+    >
+      <h3>
+        ← BACK
+      </h3>
+    </a>
+  </div>
+</div>
+`;
