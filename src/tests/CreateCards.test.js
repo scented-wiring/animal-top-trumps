@@ -1,48 +1,98 @@
-import { render } from "@testing-library/react";
+import { render, unmountComponentAtNode } from "react-dom";
+import { act } from "react-dom/test-utils";
 import { BrowserRouter } from "react-router-dom";
+import {
+  fireEvent,
+  getAllByRole,
+  getByRole,
+  getByText,
+} from "@testing-library/react";
 import CreateCards from "../components/CreateCards";
+import axios from "axios";
+import MockAdapter from "axios-mock-adapter";
 
-test("renders correctly", () => {
-  const { asFragment } = render(
+const renderContainer = () => {
+  render(
     <BrowserRouter>
       <CreateCards />
-    </BrowserRouter>
+    </BrowserRouter>,
+    container
   );
-  expect(asFragment).toMatchSnapshot();
+};
+
+let container;
+
+beforeEach(() => {
+  container = document.createElement("div");
+  document.body.appendChild(container);
 });
 
-test("renders back link", () => {
-  const { getAllByRole } = render(
-    <BrowserRouter>
-      <CreateCards />
-    </BrowserRouter>
-  );
-  expect(getAllByRole("link")).toHaveLength(1);
+afterEach(() => {
+  unmountComponentAtNode(container);
+  container.remove();
+  container = null;
 });
 
-test("renders 2 textboxes", () => {
-  const { getAllByRole } = render(
-    <BrowserRouter>
-      <CreateCards />
-    </BrowserRouter>
-  );
-  expect(getAllByRole("textbox")).toHaveLength(2);
-});
+describe("Create Cards component", () => {
+  test("renders correctly", () => {
+    renderContainer();
+    expect(container).toMatchSnapshot();
+  });
 
-test("renders 4 select boxes", () => {
-  const { getAllByRole } = render(
-    <BrowserRouter>
-      <CreateCards />
-    </BrowserRouter>
-  );
-  expect(getAllByRole("combobox")).toHaveLength(4);
-});
+  test("renders home link", () => {
+    renderContainer();
+    const link = getByRole(container, "link");
+    expect(link.textContent).toContain("← BACK");
+    expect(link.getAttribute("href")).toBe("/");
+  });
 
-test("renders a button", () => {
-  const { getAllByRole } = render(
-    <BrowserRouter>
-      <CreateCards />
-    </BrowserRouter>
-  );
-  expect(getAllByRole("button")).toHaveLength(1);
+  test("renders 2 textboxes", () => {
+    renderContainer();
+    const textboxes = getAllByRole(container, "textbox");
+    expect(textboxes).toHaveLength(2);
+  });
+
+  test("renders 4 select boxes", () => {
+    renderContainer();
+    const selectBoxes = getAllByRole(container, "combobox");
+    expect(selectBoxes).toHaveLength(4);
+  });
+
+  test("renders a submit button", () => {
+    renderContainer();
+    const button = getByRole(container, "button");
+    expect(button).toBeInTheDocument();
+  });
+
+  test("renders a success message on submit", async () => {
+    var mock = new MockAdapter(axios);
+    mock.onPost("http://localhost:3000/cards").reply(200);
+
+    await act(async () => {
+      renderContainer();
+    });
+
+    await act(async () => {
+      fireEvent.click(getByRole(container, "button"));
+    });
+
+    const successMessage = getByText(container, "Success!");
+    expect(successMessage).toBeInTheDocument();
+  });
+
+  test("renders an error message on submit", async () => {
+    var mock = new MockAdapter(axios);
+    mock.onPost("http://localhost:3000/cards").reply(404);
+
+    await act(async () => {
+      renderContainer();
+    });
+
+    await act(async () => {
+      fireEvent.click(getByRole(container, "button"));
+    });
+
+    const errorMessage = getByText(container, "Error!");
+    expect(errorMessage).toBeInTheDocument();
+  });
 });

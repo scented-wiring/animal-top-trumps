@@ -1,3 +1,299 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `[Function]`;
+exports[`Create Cards component renders correctly 1`] = `
+<div>
+  <div
+    class="CreateCards"
+  >
+    <h2>
+      Card Creator
+    </h2>
+    <form
+      class="createCardsForm"
+    >
+      <label
+        for="name"
+      >
+        Name*
+        <input
+          autocomplete="off"
+          id="name"
+          name="name"
+          pattern="^(?=.*\\\\S).+$"
+          required=""
+          title="Must be at least 1 non-space character"
+        />
+      </label>
+      <label
+        for="cool"
+      >
+        Cool*
+        <select
+          class="selectNumber"
+          name="cool"
+        >
+          <option
+            value="1"
+          >
+            1
+          </option>
+          <option
+            value="2"
+          >
+            2
+          </option>
+          <option
+            value="3"
+          >
+            3
+          </option>
+          <option
+            value="4"
+          >
+            4
+          </option>
+          <option
+            value="5"
+          >
+            5
+          </option>
+          <option
+            value="6"
+          >
+            6
+          </option>
+          <option
+            value="7"
+          >
+            7
+          </option>
+          <option
+            value="8"
+          >
+            8
+          </option>
+          <option
+            value="9"
+          >
+            9
+          </option>
+          <option
+            value="10"
+          >
+            10
+          </option>
+        </select>
+      </label>
+      <label
+        for="largeness"
+      >
+        Largeness*
+        <select
+          class="selectNumber"
+          name="largeness"
+        >
+          <option
+            value="1"
+          >
+            1
+          </option>
+          <option
+            value="2"
+          >
+            2
+          </option>
+          <option
+            value="3"
+          >
+            3
+          </option>
+          <option
+            value="4"
+          >
+            4
+          </option>
+          <option
+            value="5"
+          >
+            5
+          </option>
+          <option
+            value="6"
+          >
+            6
+          </option>
+          <option
+            value="7"
+          >
+            7
+          </option>
+          <option
+            value="8"
+          >
+            8
+          </option>
+          <option
+            value="9"
+          >
+            9
+          </option>
+          <option
+            value="10"
+          >
+            10
+          </option>
+        </select>
+      </label>
+      <label
+        for="handsome"
+      >
+        Handsome*
+        <select
+          class="selectNumber"
+          name="handsome"
+        >
+          <option
+            value="1"
+          >
+            1
+          </option>
+          <option
+            value="2"
+          >
+            2
+          </option>
+          <option
+            value="3"
+          >
+            3
+          </option>
+          <option
+            value="4"
+          >
+            4
+          </option>
+          <option
+            value="5"
+          >
+            5
+          </option>
+          <option
+            value="6"
+          >
+            6
+          </option>
+          <option
+            value="7"
+          >
+            7
+          </option>
+          <option
+            value="8"
+          >
+            8
+          </option>
+          <option
+            value="9"
+          >
+            9
+          </option>
+          <option
+            value="10"
+          >
+            10
+          </option>
+        </select>
+      </label>
+      <label
+        for="aka"
+      >
+        aka (Nickname)
+        <input
+          autocomplete="off"
+          id="aka"
+          name="aka"
+        />
+      </label>
+      <label
+        for="alignment"
+      >
+        Alignment
+        <select
+          id="alignment"
+          name="alignment"
+        >
+          <option
+            type="text"
+            value=""
+          >
+            -
+          </option>
+          <option
+            value="Lawful Good"
+          >
+            Lawful Good
+          </option>
+          <option
+            value="Neutral Good"
+          >
+            Neutral Good
+          </option>
+          <option
+            value="Chaotic Good"
+          >
+            Chaotic Good
+          </option>
+          <option
+            value="Lawful Neutral"
+          >
+            Lawful Neutral
+          </option>
+          <option
+            value="True Neutral"
+          >
+            True Neutral
+          </option>
+          <option
+            value="Chaotic Neutral"
+          >
+            Chaotic Neutral
+          </option>
+          <option
+            value="Lawful Evil"
+          >
+            Lawful Evil
+          </option>
+          <option
+            value="Neutral Evil"
+          >
+            Neutral Evil
+          </option>
+          <option
+            value="Chaoti Evil"
+          >
+            Chaotic Evil
+          </option>
+        </select>
+      </label>
+      <div
+        class="validation"
+      >
+        * Required fields
+      </div>
+      <button
+        class="addCardButton"
+        type="submit"
+      >
+        Add Card
+      </button>
+    </form>
+    <a
+      href="/"
+    >
+      <h3>
+        ← BACK
+      </h3>
+    </a>
+  </div>
+</div>
+`;

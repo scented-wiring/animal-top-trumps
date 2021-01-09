@@ -50,7 +50,11 @@ const CreateCards = () => {
   };
 
   const handleFieldChange = (event) => {
-    if (event.target.type === "text") {
+    if (
+      event.target.name === "name" ||
+      event.target.name === "alignment" ||
+      event.target.name === "aka"
+    ) {
       setFields({ ...fields, [event.target.name]: event.target.value });
     } else {
       setFields({
@@ -83,7 +87,6 @@ const CreateCards = () => {
             name="name"
             autoComplete="off"
             onChange={handleFieldChange}
-            type="text"
             pattern="^(?=.*\S).+$"
             required
             title="Must be at least 1 non-space character"
@@ -153,18 +156,14 @@ const CreateCards = () => {
             name="aka"
             autoComplete="off"
             onChange={handleFieldChange}
-            type="text"
           />
         </label>
         <label htmlFor="alignment">
           Alignment
-          <select
-            id="alignment"
-            name="alignment"
-            onChange={handleFieldChange}
-            type="text"
-          >
-            <option value="">-</option>
+          <select id="alignment" name="alignment" onChange={handleFieldChange}>
+            <option value="" type="text">
+              -
+            </option>
             <option value="Lawful Good">Lawful Good</option>
             <option value="Neutral Good">Neutral Good</option>
             <option value="Chaotic Good">Chaotic Good</option>
