@@ -12,7 +12,7 @@ const CreateCards = () => {
       cool: 1,
       largeness: 1,
       handsome: 1,
-      alignment: "",
+      alignment: "Lawful Good",
     },
     alert: {
       message: "",
@@ -81,7 +81,7 @@ const CreateCards = () => {
           onAlertPress={handleAlertPress}
         />
         <label htmlFor="name">
-          Name*
+          Name
           <input
             id="name"
             name="name"
@@ -93,7 +93,7 @@ const CreateCards = () => {
           />
         </label>
         <label htmlFor="cool">
-          Cool*
+          Cool
           <select
             className="selectNumber"
             name="cool"
@@ -112,7 +112,7 @@ const CreateCards = () => {
           </select>
         </label>
         <label htmlFor="largeness">
-          Largeness*
+          Largeness
           <select
             className="selectNumber"
             name="largeness"
@@ -131,7 +131,7 @@ const CreateCards = () => {
           </select>
         </label>
         <label htmlFor="handsome">
-          Handsome*
+          Handsome
           <select
             className="selectNumber"
             name="handsome"
@@ -156,14 +156,14 @@ const CreateCards = () => {
             name="aka"
             autoComplete="off"
             onChange={handleFieldChange}
+            pattern="^(?=.*\S).+$"
+            required
+            title="Must be at least 1 non-space character"
           />
         </label>
         <label htmlFor="alignment">
           Alignment
           <select id="alignment" name="alignment" onChange={handleFieldChange}>
-            <option value="" type="text">
-              -
-            </option>
             <option value="Lawful Good">Lawful Good</option>
             <option value="Neutral Good">Neutral Good</option>
             <option value="Chaotic Good">Chaotic Good</option>
@@ -175,10 +175,11 @@ const CreateCards = () => {
             <option value="Chaotic Evil">Chaotic Evil</option>
           </select>
         </label>
-        <div className="validation">* Required fields</div>
-        <button type="submit" className="addCardButton">
-          Add Card
-        </button>
+        <div className="validation">
+          Note: "aka" and "alignment" are just for fun and do not have any
+          bearing on the gameplay.
+        </div>
+        <button type="submit">Add Card</button>
       </form>
       <Link to="/">
         <h3>&larr; BACK</h3>
