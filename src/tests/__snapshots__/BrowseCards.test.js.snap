@@ -26,6 +26,15 @@ exports[`BrowseCards component renders correctly 1`] = `
           Elephant
         </option>
       </select>
+      <div
+        class="Card"
+      >
+        <div
+          class="other-stat"
+        >
+          Choose a card from the left to view its stats
+        </div>
+      </div>
     </div>
     <a
       href="/"
