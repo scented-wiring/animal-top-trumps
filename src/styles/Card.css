@@ -1,13 +1,14 @@
 .Card {
-  height: 416px;
-  width: 260px;
+  height: 440px;
+  width: 280px;
   background: #00bdcb;
   margin: 15px auto 15px 25px;
-  padding: 30px;
+  padding: 20px;
   border: 2px solid black;
   border-radius: 30px;
   display: flex;
   flex-direction: column;
+  box-shadow: 5px 5px;
 }
 
 .name {
@@ -16,7 +17,7 @@
   font-weight: bold;
   text-decoration: underline;
   font-size: 40px;
-  margin: 10px 0 20px 0;
+  margin-bottom: 20px;
 }
 
 .other-stat {
