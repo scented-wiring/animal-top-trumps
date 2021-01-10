@@ -172,7 +172,7 @@ const CreateCards = () => {
             <option value="Chaotic Neutral">Chaotic Neutral</option>
             <option value="Lawful Evil">Lawful Evil</option>
             <option value="Neutral Evil">Neutral Evil</option>
-            <option value="Chaoti Evil">Chaotic Evil</option>
+            <option value="Chaotic Evil">Chaotic Evil</option>
           </select>
         </label>
         <div className="validation">* Required fields</div>
