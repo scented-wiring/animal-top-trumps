@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import Alert from "../components/Alert";
+import Card from "../components/Card";
 
 const BrowseCards = () => {
   const initialState = {
@@ -10,9 +11,14 @@ const BrowseCards = () => {
       message: "",
       alertType: "",
     },
+    card: {
+      name: "Choose a card from the left to view its stats",
+      aka: "default__card",
+    },
   };
 
   const [cards, setCards] = useState([]);
+  const [card, setCard] = useState(initialState.card);
   const [alert, setAlert] = useState(initialState.alert);
   const [load, setLoad] = useState(true);
 
@@ -30,6 +36,27 @@ const BrowseCards = () => {
     setLoad(false);
   }, []);
 
+  const handleDeleteCard = (id) => {
+    axios
+      .delete(`http://localhost:3000/cards/${id}`)
+      .then(() => setCards(cards.filter((card) => card.id !== id)))
+      .then(() => {
+        setCard(initialState.card);
+      })
+      .then(() => {
+        setAlert({
+          message: "Card deleted",
+          alertType: "Success",
+        });
+      })
+      .catch(() => {
+        setAlert({
+          message: "Could not connect to the server",
+          alertType: "Error",
+        });
+      });
+  };
+
   if (!load) {
     return (
       <div className="BrowseCards">
@@ -37,9 +64,15 @@ const BrowseCards = () => {
         <div className="display">
           <select name="selectCards" className="selectCards" size="15">
             {cards.map((card) => (
-              <option key={card.id}>{card.name}</option>
+              <option
+                key={cards.indexOf(card)}
+                onClick={() => setCard(cards[cards.indexOf(card)])}
+              >
+                {card.name}
+              </option>
             ))}
           </select>
+          <Card {...card} deleteCard={handleDeleteCard} />
         </div>
         <Alert message={alert.message} alertType={alert.alertType} />
         <Link to="/">
