@@ -10,7 +10,8 @@ const Play = () => {
     },
   };
 
-  const [cards, setCards] = useState([]);
+  const [playerCards, setPlayerCards] = useState([]);
+  const [computerCards, setComputerCards] = useState([]);
   const [alert, setAlert] = useState(initialState.alert);
   const [load, setLoad] = useState([true]);
 
@@ -31,24 +32,6 @@ const Play = () => {
     return array;
   };
 
-  useEffect(() => {
-    setLoad(true);
-    axios
-      .get("http://localhost:3000/cards")
-      .then((response) => setCards(response.data))
-      .catch(() => {
-        setAlert({
-          message: "Could not connect to the server.",
-          alertType: "Error",
-        });
-      });
-    setLoad(false);
-  }, []);
-
-  if (!load) {
-    shuffle(cards);
-  }
-
   const handleAlertPress = () => {
     setAlert({
       message: "",
@@ -56,15 +39,38 @@ const Play = () => {
     });
   };
 
+  useEffect(() => {
+    const deal = (array) => {
+      let i;
+      for (i = 0; i < array.length; i++) {
+        if (array.indexOf(array[i]) % 2 === 0) {
+          playerCards.push(array[i]);
+        } else {
+          computerCards.push(array[i]);
+        }
+      }
+    };
+
+    setLoad(true);
+    axios
+      .get("http://localhost:3000/cards")
+      .then((response) => deal(shuffle(response.data)))
+      .catch(() => {
+        setAlert({
+          message: "Could not connect to the server.",
+          alertType: "Error",
+        });
+      });
+    setLoad(false);
+  }, [computerCards, playerCards]);
+
   return (
     <div className="Play">
-      {" "}
       <Alert
         message={alert.message}
         alertType={alert.alertType}
         onAlertPress={handleAlertPress}
       />
-      Test
     </div>
   );
 };
