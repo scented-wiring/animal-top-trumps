@@ -1,5 +1,6 @@
 import "../styles/App.css";
 import Home from "../components/Home";
+import Play from "../components/Play";
 import BrowseCards from "../components/BrowseCards";
 import CreateCards from "../components/CreateCards";
 import { Link, Switch, Route } from "react-router-dom";
@@ -18,6 +19,7 @@ const App = () => {
       </div>
       <Switch>
         <Route exact path="/" component={Home} />
+        <Route exact path="/play" component={Play} />
         <Route exact path="/browsecards" component={BrowseCards} />
         <Route exact path="/createcards" component={CreateCards} />
       </Switch>
