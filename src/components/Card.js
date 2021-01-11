@@ -31,9 +31,11 @@ const Card = ({
           <br />
           {alignment}{" "}
         </div>
-        <div className="delete">
-          <button onClick={() => deleteCard(id)}>DELETE</button>
-        </div>
+        {deleteCard && (
+          <div className="delete">
+            <button onClick={() => deleteCard(id)}>DELETE</button>
+          </div>
+        )}
       </div>
     );
   }
