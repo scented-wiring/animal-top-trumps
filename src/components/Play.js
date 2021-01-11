@@ -1,5 +1,6 @@
 import "../styles/Play.css";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import Alert from "../components/Alert";
 import Card from "../components/Card";
@@ -75,14 +76,23 @@ const Play = () => {
   if (!load) {
     return (
       <div className="Play">
+        <h2>Play</h2>
         <div className="card-display">
-          <Card {...playerCard} /> <Card {...computerCard} />
+          <div className="player">
+            <Card {...playerCard} />
+          </div>
+          <div className="computer">
+            <Card {...computerCard} secret={true} />
+          </div>
         </div>
         <Alert
           message={alert.message}
           alertType={alert.alertType}
           onAlertPress={handleAlertPress}
         />
+        <Link to="/">
+          <h3>&larr; BACK</h3>
+        </Link>
       </div>
     );
   } else {

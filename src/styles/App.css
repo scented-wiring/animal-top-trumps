@@ -14,7 +14,6 @@
   letter-spacing: 3px;
   transition: all 0.4s ease 0s;
   padding: 15px 0 15px 0;
-  margin-bottom: 15px;
 }
 
 .title:hover {
@@ -65,14 +64,15 @@ h2 {
   font-size: 35px;
   font-family: "Staatliches", sans-serif;
   transition: all 0.4s ease 0s;
-  margin: 0;
+  margin: 20px 0 20px 0;
 }
 
 h3 {
   margin: 0;
-  font-size: 25px;
+  font-size: 30px;
   font-family: "Staatliches", sans-serif;
   transition: all 0.4s ease 0s;
+  margin-top: 20px;
 }
 
 h3:hover {

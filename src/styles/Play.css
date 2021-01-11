@@ -1,8 +1,17 @@
-.BrowseCards {
+.Play {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .card-display {
   display: flex;
+}
+
+.player {
+  margin-right: 700px;
+}
+
+.computer {
+  margin-left: auto;
 }
