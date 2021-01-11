@@ -5,8 +5,98 @@ exports[`BrowseCards component renders correctly 1`] = `
   <div
     class="Play"
   >
-     
-    Test
+    <h2>
+      Play
+    </h2>
+    <div
+      class="card-display"
+    >
+      <div
+        class="player"
+      >
+        <div
+          class="Card-border"
+        >
+          <div
+            class="Card"
+          >
+            <div
+              class="name"
+            >
+              Dog
+            </div>
+            <div
+              class="other-stat"
+            >
+              Cool: 
+              6
+               
+            </div>
+            <div
+              class="other-stat"
+            >
+              Largeness: 
+              6
+               
+            </div>
+            <div
+              class="other-stat"
+            >
+              Handsome: 
+              10
+               
+            </div>
+            <div
+              class="other-stat"
+            >
+              aka: 
+              <br />
+              "
+              Hairy friend
+              "
+               
+            </div>
+            <div
+              class="other-stat"
+            >
+              Alignment:
+              <br />
+              Good
+               
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="computer"
+      >
+        <div
+          class="hidden-card"
+        >
+          <div
+            class="text"
+          >
+            Animal 
+            <br />
+            Top Trumps
+          </div>
+          <img
+            alt="Logo"
+            height="96px"
+            id="card-logo"
+            src="dog.png"
+            width="96px"
+          />
+        </div>
+      </div>
+    </div>
+    <a
+      href="/"
+    >
+      <h3>
+        ← BACK
+      </h3>
+    </a>
   </div>
 </div>
 `;

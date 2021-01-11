@@ -49,12 +49,18 @@ describe("BrowseCards component", () => {
     );
   });
 
-  test("renders a delete button", () => {
-    render(<Card />, container);
+  test("renders a delete button if deleteCard prop is truthy", () => {
+    render(<Card deleteCard={true} />, container);
 
     const button = getByRole(container, "button");
 
     expect(button).toBeInTheDocument();
     expect(button.textContent).toContain("DELETE");
+  });
+
+  test("doesn't render a delete button if deleteCard prop is falsy", () => {
+    render(<Card deleteCard={false} />, container);
+
+    expect(container.textContent).not.toContain("DELETE");
   });
 });

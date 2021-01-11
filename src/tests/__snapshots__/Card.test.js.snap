@@ -3,51 +3,48 @@
 exports[`BrowseCards component renders correctly 1`] = `
 <div>
   <div
-    class="Card"
+    class="Card-border"
   >
     <div
-      class="name"
-    />
-    <div
-      class="other-stat"
+      class="Card"
     >
-      Cool: 
-       
-    </div>
-    <div
-      class="other-stat"
-    >
-      Largeness: 
-       
-    </div>
-    <div
-      class="other-stat"
-    >
-      Handsome: 
-       
-    </div>
-    <div
-      class="other-stat"
-    >
-      aka: 
-      <br />
-      "
-      "
-       
-    </div>
-    <div
-      class="other-stat"
-    >
-      Alignment:
-      <br />
-       
-    </div>
-    <div
-      class="delete"
-    >
-      <button>
-        DELETE
-      </button>
+      <div
+        class="name"
+      />
+      <div
+        class="other-stat"
+      >
+        Cool: 
+         
+      </div>
+      <div
+        class="other-stat"
+      >
+        Largeness: 
+         
+      </div>
+      <div
+        class="other-stat"
+      >
+        Handsome: 
+         
+      </div>
+      <div
+        class="other-stat"
+      >
+        aka: 
+        <br />
+        "
+        "
+         
+      </div>
+      <div
+        class="other-stat"
+      >
+        Alignment:
+        <br />
+         
+      </div>
     </div>
   </div>
 </div>

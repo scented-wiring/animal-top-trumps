@@ -27,12 +27,16 @@ exports[`BrowseCards component renders correctly 1`] = `
         </option>
       </select>
       <div
-        class="Card"
+        class="Card-border"
       >
         <div
-          class="other-stat"
+          class="Card"
         >
-          Choose a card from the left to view its stats
+          <div
+            class="other-stat"
+          >
+            Choose a card from the left to view its stats
+          </div>
         </div>
       </div>
     </div>
