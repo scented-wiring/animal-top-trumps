@@ -17,6 +17,7 @@ const Play = () => {
   const [playerCard, setPlayerCard] = useState({});
   const [computerCards, setComputerCards] = useState([]);
   const [computerCard, setComputerCard] = useState({});
+  const [playerTurn, setPlayerTurn] = useState(true);
   const [alert, setAlert] = useState(initialState.alert);
   const [load, setLoad] = useState([true]);
 
@@ -44,6 +45,20 @@ const Play = () => {
     });
   };
 
+  const playField = (field) => {
+    if (playerCard[field] > computerCard[field]) {
+      setPlayerCards((playerCards) => [...playerCards, computerCard]);
+      computerCards.splice(0, 1);
+      setComputerCards(computerCards);
+      setComputerCard(computerCards[0]);
+    } else {
+      setComputerCards((computerCards) => [...computerCards, computerCard]);
+      playerCards.splice(0, 1);
+      setPlayerCards(playerCards);
+      setPlayerCard(playerCards[0]);
+    }
+  };
+
   useEffect(() => {
     const deal = (array) => {
       let i;
@@ -56,32 +71,56 @@ const Play = () => {
       }
     };
 
-    setLoad(true);
     axios
       .get("http://localhost:3000/cards")
       .then((response) => {
         deal(shuffle(response.data));
         setPlayerCard(playerCards[0]);
         setComputerCard(computerCards[0]);
+        setLoad(false);
       })
       .catch(() => {
         setAlert({
           message: "Could not connect to the server.",
           alertType: "Error",
         });
+        setLoad(false);
       });
-    setLoad(false);
-  }, [computerCards, playerCards]);
+  }, []);
 
   if (!load) {
     return (
       <div className="Play">
-        <h2>Play</h2>
-        <div className="card-display">
+        <div className="game-area">
           <div className="player">
+            <div className="score">Player: {playerCards.length} cards</div>
             <Card {...playerCard} />
           </div>
+
+          <div className="game-ui">
+            {playerTurn ? (
+              <div className="player-turn">
+                <div className="turn">Player's Turn</div>
+                <div className="select-field">
+                  Select a field to play <br /> against your opponent:
+                </div>
+                <div className="field" onClick={() => playField("cool")}>
+                  Cool
+                </div>
+                <div className="field" onClick={() => playField("largeness")}>
+                  Largeness
+                </div>
+                <div className="field" onClick={() => playField("handsome")}>
+                  Handsome
+                </div>
+              </div>
+            ) : (
+              <div className="turn">Computer's Turn</div>
+            )}
+          </div>
+
           <div className="computer">
+            <div className="score">Computer: {computerCards.length} cards</div>
             <Card {...computerCard} secret={true} />
           </div>
         </div>

@@ -1,17 +1,63 @@
 .Play {
   display: flex;
   flex-direction: column;
+  margin-top: 40px;
   align-items: center;
+  width: 100%;
 }
 
-.card-display {
+.game-area {
   display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+  width: 100%;
+  justify-content: space-between;
 }
 
 .player {
-  margin-right: 700px;
+  margin-left: 100px;
 }
 
 .computer {
-  margin-left: auto;
+  margin-right: 100px;
+}
+
+.score {
+  display: flex;
+  flex-direction: column;
+  font-family: "Staatliches", sans-serif;
+  font-size: 30px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.game-ui {
+  justify-self: center;
+  text-align: center;
+}
+
+.turn {
+  font-family: "Staatliches", sans-serif;
+  text-decoration: underline;
+  font-size: 50px;
+  margin-bottom: 20px;
+}
+
+.select-field {
+  font-size: 25px;
+  margin-bottom: 20px;
+}
+
+.field {
+  font-family: "Staatliches", sans-serif;
+  font-size: 50px;
+  margin-bottom: 20px;
+  transition: all 0.4s ease 0s;
+}
+
+.field:hover {
+  color: red;
+  cursor: pointer;
+  transition: all 0.4s ease 0s;
+  letter-spacing: 3px;
 }

@@ -5,15 +5,19 @@ exports[`BrowseCards component renders correctly 1`] = `
   <div
     class="Play"
   >
-    <h2>
-      Play
-    </h2>
     <div
-      class="card-display"
+      class="game-area"
     >
       <div
         class="player"
       >
+        <div
+          class="score"
+        >
+          Player: 
+          2
+           cards
+        </div>
         <div
           class="Card-border"
         >
@@ -23,27 +27,24 @@ exports[`BrowseCards component renders correctly 1`] = `
             <div
               class="name"
             >
-              Dog
+              Elephant
             </div>
             <div
               class="other-stat"
             >
               Cool: 
-              6
                
             </div>
             <div
               class="other-stat"
             >
               Largeness: 
-              6
                
             </div>
             <div
               class="other-stat"
             >
               Handsome: 
-              10
                
             </div>
             <div
@@ -52,7 +53,6 @@ exports[`BrowseCards component renders correctly 1`] = `
               aka: 
               <br />
               "
-              Hairy friend
               "
                
             </div>
@@ -61,15 +61,56 @@ exports[`BrowseCards component renders correctly 1`] = `
             >
               Alignment:
               <br />
-              Good
                
             </div>
           </div>
         </div>
       </div>
       <div
+        class="game-ui"
+      >
+        <div
+          class="player-turn"
+        >
+          <div
+            class="turn"
+          >
+            Player's Turn
+          </div>
+          <div
+            class="select-field"
+          >
+            Select a field to play 
+            <br />
+             against your opponent:
+          </div>
+          <div
+            class="field"
+          >
+            Cool
+          </div>
+          <div
+            class="field"
+          >
+            Largeness
+          </div>
+          <div
+            class="field"
+          >
+            Handsome
+          </div>
+        </div>
+      </div>
+      <div
         class="computer"
       >
+        <div
+          class="score"
+        >
+          Computer: 
+          1
+           cards
+        </div>
         <div
           class="hidden-card"
         >
