@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import Alert from "../components/Alert";
 import Card from "../components/Card";
+import GameUI from "../components/GameUI";
 
 const Play = () => {
   const initialState = {
@@ -17,7 +18,11 @@ const Play = () => {
   const [playerCard, setPlayerCard] = useState({});
   const [computerCards, setComputerCards] = useState([]);
   const [computerCard, setComputerCard] = useState({});
+  const [lostCard, setLostCard] = useState("");
+
   const [playerTurn, setPlayerTurn] = useState(true);
+  const [win, setWin] = useState("");
+
   const [alert, setAlert] = useState(initialState.alert);
   const [load, setLoad] = useState([true]);
 
@@ -45,17 +50,20 @@ const Play = () => {
     });
   };
 
-  const playField = (field) => {
+  const handlePlayField = (field) => {
     if (playerCard[field] > computerCard[field]) {
       setPlayerCards((playerCards) => [...playerCards, computerCard]);
       computerCards.splice(0, 1);
       setComputerCards(computerCards);
-      setComputerCard(computerCards[0]);
+      setWin("Player");
+      setLostCard(computerCard.name);
     } else {
       setComputerCards((computerCards) => [...computerCards, computerCard]);
       playerCards.splice(0, 1);
       setPlayerCards(playerCards);
       setPlayerCard(playerCards[0]);
+      setWin("Computer");
+      setLostCard(playerCard.name);
     }
   };
 
@@ -84,7 +92,6 @@ const Play = () => {
           message: "Could not connect to the server.",
           alertType: "Error",
         });
-        setLoad(false);
       });
   }, []);
 
@@ -97,27 +104,13 @@ const Play = () => {
             <Card {...playerCard} />
           </div>
 
-          <div className="game-ui">
-            {playerTurn ? (
-              <div className="player-turn">
-                <div className="turn">Player's Turn</div>
-                <div className="select-field">
-                  Select a field to play <br /> against your opponent:
-                </div>
-                <div className="field" onClick={() => playField("cool")}>
-                  Cool
-                </div>
-                <div className="field" onClick={() => playField("largeness")}>
-                  Largeness
-                </div>
-                <div className="field" onClick={() => playField("handsome")}>
-                  Handsome
-                </div>
-              </div>
-            ) : (
-              <div className="turn">Computer's Turn</div>
-            )}
-          </div>
+          <GameUI
+            playerTurn={playerTurn}
+            playField={handlePlayField}
+            win={win}
+            lostCard={lostCard}
+            clearWin={() => setWin("")}
+          />
 
           <div className="computer">
             <div className="score">Computer: {computerCards.length} cards</div>
