@@ -19,8 +19,11 @@ const Play = () => {
   const [computerCards, setComputerCards] = useState([]);
   const [computerCard, setComputerCard] = useState({});
   const [lostCard, setLostCard] = useState("");
+  const [cardHighField, setCardHighField] = useState("");
+  const [showWonCard, setShowWonCard] = useState(false);
 
   const [playerTurn, setPlayerTurn] = useState(true);
+
   const [win, setWin] = useState("");
 
   const [alert, setAlert] = useState(initialState.alert);
@@ -52,19 +55,45 @@ const Play = () => {
 
   const handlePlayField = (field) => {
     if (playerCard[field] > computerCard[field]) {
+      //player win
+      setLostCard(computerCard.name);
+      setShowWonCard(true);
       setPlayerCards((playerCards) => [...playerCards, computerCard]);
       computerCards.splice(0, 1);
       setComputerCards(computerCards);
+      setComputerCard(computerCards[0]);
       setWin("Player");
-      setLostCard(computerCard.name);
+      setPlayerTurn(true);
     } else {
-      setComputerCards((computerCards) => [...computerCards, computerCard]);
+      //computer win
+      setLostCard(playerCard.name);
+      setComputerCards((computerCards) => [...computerCards, playerCard]);
       playerCards.splice(0, 1);
       setPlayerCards(playerCards);
       setPlayerCard(playerCards[0]);
       setWin("Computer");
-      setLostCard(playerCard.name);
+
+      // The below block is required to remove "id" from playable fields
+      let cardValues = Object.assign(
+        {},
+        {
+          cool: computerCard.cool,
+          handsome: computerCard.handsome,
+          largeness: computerCard.largeness,
+        }
+      );
+      let highValue = Math.max(...Object.values(cardValues));
+      setCardHighField(
+        Object.keys(computerCard).find((key) => computerCard[key] === highValue)
+      );
+
+      setPlayerTurn(false);
     }
+  };
+
+  const handleClearWin = () => {
+    setWin(false);
+    setShowWonCard(false);
   };
 
   useEffect(() => {
@@ -101,7 +130,11 @@ const Play = () => {
         <div className="game-area">
           <div className="player">
             <div className="score">Player: {playerCards.length} cards</div>
-            <Card {...playerCard} />
+            {showWonCard ? (
+              <Card {...playerCards[playerCards.length - 1]} />
+            ) : (
+              <Card {...playerCard} />
+            )}
           </div>
 
           <GameUI
@@ -109,12 +142,13 @@ const Play = () => {
             playField={handlePlayField}
             win={win}
             lostCard={lostCard}
-            clearWin={() => setWin("")}
+            clearWin={handleClearWin}
+            cardHighField={cardHighField}
           />
 
           <div className="computer">
             <div className="score">Computer: {computerCards.length} cards</div>
-            <Card {...computerCard} secret={true} />
+            <Card {...computerCard} hide={true} />
           </div>
         </div>
         <Alert

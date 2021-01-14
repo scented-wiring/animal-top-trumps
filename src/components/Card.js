@@ -10,7 +10,7 @@ const Card = ({
   alignment,
   id,
   deleteCard,
-  secret,
+  hide,
 }) => {
   if (aka === "default__card") {
     return (
@@ -20,7 +20,7 @@ const Card = ({
         </div>
       </div>
     );
-  } else if (secret) {
+  } else if (hide) {
     return (
       <div className="hidden-card">
         <div className="text">

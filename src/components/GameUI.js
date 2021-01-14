@@ -1,6 +1,13 @@
 import "../styles/GameUI.css";
 
-const GameUI = ({ playerTurn, playField, win, lostCard, clearWin }) => {
+const GameUI = ({
+  playerTurn,
+  playField,
+  win,
+  lostCard,
+  clearWin,
+  cardHighField,
+}) => {
   if (win) {
     return (
       <div className="game-ui">
@@ -35,7 +42,16 @@ const GameUI = ({ playerTurn, playField, win, lostCard, clearWin }) => {
             </div>
           </div>
         ) : (
-          <div className="turn">Computer's Turn</div>
+          <div className="computer-turn">
+            <div className="status">Computer's Turn</div>
+            <div className="message">Computer plays {cardHighField}!</div>
+            <button
+              className="clearAlert"
+              onClick={() => playField(cardHighField)}
+            >
+              OK
+            </button>
+          </div>
         )}
       </div>
     );
