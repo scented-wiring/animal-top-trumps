@@ -64,3 +64,11 @@
   border-radius: 50%;
   background-color: white;
 }
+
+.no-cards {
+  display: flex;
+  flex-direction: column;
+  height: 460px;
+  width: 300px;
+  padding: 10px;
+}

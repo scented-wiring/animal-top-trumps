@@ -11,6 +11,7 @@ const Card = ({
   id,
   deleteCard,
   hide,
+  deckSize,
 }) => {
   if (aka === "default__card") {
     return (
@@ -20,6 +21,8 @@ const Card = ({
         </div>
       </div>
     );
+  } else if (deckSize === 0) {
+    return <div className="no-cards"></div>;
   } else if (hide) {
     return (
       <div className="hidden-card">

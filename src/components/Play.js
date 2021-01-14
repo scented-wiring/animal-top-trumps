@@ -97,6 +97,7 @@ const Play = () => {
     setShowWonCard(false);
     if (playerCards.length === 0) {
       setGameWinner("Computer");
+      setPlayerCard({ name: ":(" });
     } else if (computerCards.length === 0) {
       setGameWinner("Player");
     }
@@ -139,7 +140,7 @@ const Play = () => {
             {showWonCard ? (
               <Card {...playerCards[playerCards.length - 1]} />
             ) : (
-              <Card {...playerCard} />
+              <Card {...playerCard} deckSize={playerCards.length} />
             )}
           </div>
 
@@ -155,7 +156,11 @@ const Play = () => {
 
           <div className="computer">
             <div className="score">Computer: {computerCards.length} cards</div>
-            <Card {...computerCard} hide={true} />
+            <Card
+              {...computerCard}
+              hide={true}
+              deckSize={computerCards.length}
+            />
           </div>
         </div>
         <Alert
