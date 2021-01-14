@@ -64,7 +64,6 @@ const Play = () => {
       setComputerCards(computerCards);
       setComputerCard(computerCards[0]);
       setWin("Player");
-      setPlayerTurn(true);
     } else {
       //computer win
       setLostCard(playerCard.name);
@@ -74,7 +73,7 @@ const Play = () => {
       setPlayerCard(playerCards[0]);
       setWin("Computer");
 
-      // The below block is required to remove "id" from playable fields
+      // The below block is required to remove the "id" key from playable fields
       let cardValues = Object.assign(
         {},
         {
@@ -97,7 +96,6 @@ const Play = () => {
     setShowWonCard(false);
     if (playerCards.length === 0) {
       setGameWinner("Computer");
-      setPlayerCard({ name: ":(" });
     } else if (computerCards.length === 0) {
       setGameWinner("Player");
     }
@@ -138,7 +136,7 @@ const Play = () => {
           <div className="player">
             <div className="score">Player: {playerCards.length} cards</div>
             {showWonCard ? (
-              <Card {...playerCards[playerCards.length - 1]} />
+              <Card {...playerCards[playerCards.length - 1]} /> // Displays the card that the player has won
             ) : (
               <Card {...playerCard} deckSize={playerCards.length} />
             )}
@@ -163,11 +161,13 @@ const Play = () => {
             />
           </div>
         </div>
+
         <Alert
           message={alert.message}
           alertType={alert.alertType}
           onAlertPress={handleAlertPress}
         />
+
         <Link to="/">
           <h3>&larr; BACK</h3>
         </Link>
