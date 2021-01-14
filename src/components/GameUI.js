@@ -1,4 +1,5 @@
 import "../styles/GameUI.css";
+import { Link } from "react-router-dom";
 
 const GameUI = ({
   playerTurn,
@@ -7,7 +8,22 @@ const GameUI = ({
   lostCard,
   clearWin,
   cardHighField,
+  gameWinner,
 }) => {
+  if (gameWinner) {
+    return (
+      <div className="game-ui">
+        <div className="status">{gameWinner} wins the game!</div>
+        <div className="message">Game over!</div>
+        <div className="buttons">
+          <button onClick={() => window.location.reload()}>Play again</button>
+          <Link to="/">
+            <button>Back</button>
+          </Link>
+        </div>
+      </div>
+    );
+  }
   if (win) {
     return (
       <div className="game-ui">

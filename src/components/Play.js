@@ -25,6 +25,7 @@ const Play = () => {
   const [playerTurn, setPlayerTurn] = useState(true);
 
   const [win, setWin] = useState("");
+  const [gameWinner, setGameWinner] = useState("");
 
   const [alert, setAlert] = useState(initialState.alert);
   const [load, setLoad] = useState([true]);
@@ -94,6 +95,11 @@ const Play = () => {
   const handleClearWin = () => {
     setWin(false);
     setShowWonCard(false);
+    if (playerCards.length === 0) {
+      setGameWinner("Computer");
+    } else if (computerCards.length === 0) {
+      setGameWinner("Player");
+    }
   };
 
   useEffect(() => {
@@ -144,6 +150,7 @@ const Play = () => {
             lostCard={lostCard}
             clearWin={handleClearWin}
             cardHighField={cardHighField}
+            gameWinner={gameWinner}
           />
 
           <div className="computer">
