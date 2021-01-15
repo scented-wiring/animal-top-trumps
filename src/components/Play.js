@@ -63,6 +63,7 @@ const Play = () => {
       computerCards.splice(0, 1);
       setComputerCards(computerCards);
       setComputerCard(computerCards[0]);
+      setPlayerTurn(true);
       setWin("Player");
     } else {
       //computer win
@@ -71,6 +72,7 @@ const Play = () => {
       playerCards.splice(0, 1);
       setPlayerCards(playerCards);
       setPlayerCard(playerCards[0]);
+      setPlayerTurn(false);
       setWin("Computer");
 
       // The below block is required to remove the "id" key from playable fields
