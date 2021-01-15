@@ -162,7 +162,9 @@ const Play = () => {
       <div className="Play">
         <div className="game-area">
           <div className="player">
-            <div className="score">Player: {playerCards.length} cards</div>
+            <div className={playerTurn ? "score-active" : "score"}>
+              Player: {playerCards.length} cards
+            </div>
             {showWonCard ? (
               <Card {...playerCards.find((card) => card.name === lostCard)} /> // Displays the card that the player has won
             ) : (
@@ -182,7 +184,9 @@ const Play = () => {
           />
 
           <div className="computer">
-            <div className="score">Computer: {computerCards.length} cards</div>
+            <div className={!playerTurn ? "score-active" : "score"}>
+              Computer: {computerCards.length} cards
+            </div>
             <Card {...computerCard} deckSize={computerCards.length} />
           </div>
         </div>
