@@ -30,7 +30,8 @@ const GameUI = ({
       <div className="game-ui">
         <div className="status">{win}!</div>
         <div className="message">
-          Player and computer card added to tie deck.
+          Top player and computer cards added to tie deck.
+          <br />
           <br />
           {tieCards} tie cards up for grabs next round!
         </div>
