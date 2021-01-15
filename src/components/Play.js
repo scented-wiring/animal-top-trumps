@@ -48,65 +48,70 @@ const Play = () => {
     return array;
   };
 
-  const removeLostCards = (cards, setCards, setCard) => {
-    cards.splice(0, 1);
-    setCards(cards);
-    setCard(cards[0]);
+  const handleWinnerCards = (
+    loserCard,
+    winnerCards,
+    setWinnerCards,
+    playerWin
+  ) => {
+    setLostCard(loserCard.name);
+    winnerCards.push(loserCard);
+    setWinnerCards(winnerCards);
+    tieCards.length > 0 && setWinnerCards(winnerCards.concat(tieCards));
+    if (playerWin) {
+      setPlayerTurn(true);
+      setWin("Player");
+    } else {
+      setPlayerTurn(false);
+      setWin("Computer");
+    }
+  };
+
+  const handleLoserCards = (loserCards, setLoserCards, setLoserCard) => {
+    loserCards.splice(0, 1);
+    setLoserCards(loserCards);
+    setLoserCard(loserCards[0]);
+  };
+
+  const findHighValue = () => {
+    //below is required to remove "id" key
+    let cardValues = Object.assign(
+      {},
+      {
+        cool: computerCard.cool,
+        handsome: computerCard.handsome,
+        largeness: computerCard.largeness,
+      }
+    );
+    let highValue = Math.max(...Object.values(cardValues));
+    setCardHighField(
+      Object.keys(computerCard).find((key) => computerCard[key] === highValue)
+    );
   };
 
   const handlePlayField = (field) => {
     if (playerCard[field] === computerCard[field]) {
       //tie
       setTieCards((tieCards) => [...tieCards, playerCard, computerCard]);
-      removeLostCards(computerCards, setComputerCards, setComputerCard);
-      removeLostCards(playerCards, setPlayerCards, setPlayerCard);
+      handleLoserCards(computerCards, setComputerCards, setComputerCard);
+      handleLoserCards(playerCards, setPlayerCards, setPlayerCard);
       setWin("Tie");
     } else if (playerCard[field] > computerCard[field]) {
       //player win
-      setLostCard(computerCard.name);
       setShowWonCard(true);
-      playerCards.push(computerCard);
-      setPlayerCards(playerCards);
-      if (tieCards.length > 0) {
-        setPlayerCards(playerCards.concat(tieCards));
-      }
-      removeLostCards(computerCards, setComputerCards, setComputerCard);
-      setPlayerTurn(true);
-      setWin("Player");
+      handleWinnerCards(computerCard, playerCards, setPlayerCards, true);
+      handleLoserCards(computerCards, setComputerCards, setComputerCard);
     } else {
       //computer win
-      setLostCard(playerCard.name);
-      computerCards.push(playerCard);
-      setComputerCards(computerCards);
-      if (tieCards.length > 0) {
-        setComputerCards(computerCards.concat(tieCards));
-      }
-
-      removeLostCards(playerCards, setPlayerCards, setPlayerCard);
-      setPlayerTurn(false);
-      setWin("Computer");
-
-      // The below block is required to remove the "id" key from playable fields
-      let cardValues = Object.assign(
-        {},
-        {
-          cool: computerCard.cool,
-          handsome: computerCard.handsome,
-          largeness: computerCard.largeness,
-        }
-      );
-      let highValue = Math.max(...Object.values(cardValues));
-      setCardHighField(
-        Object.keys(computerCard).find((key) => computerCard[key] === highValue)
-      );
-
-      setPlayerTurn(false);
+      handleWinnerCards(playerCard, computerCards, setComputerCards, false);
+      handleLoserCards(playerCards, setPlayerCards, setPlayerCard);
     }
   };
 
   const handleClearWin = () => {
     setWin(false);
     setShowWonCard(false);
+    findHighValue();
     if (win !== "Tie") {
       setTieCards([]);
     }
