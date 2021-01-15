@@ -34,3 +34,7 @@
   font-size: 30px;
   font-family: "Staatliches", sans-serif;
 }
+
+.game-ui .buttons {
+  flex-direction: column;
+}

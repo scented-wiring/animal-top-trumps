@@ -25,6 +25,7 @@
   width: 240px;
   letter-spacing: 3px;
   transition: all 0.4s ease 0s;
+  outline: 0;
 }
 
 .description {
