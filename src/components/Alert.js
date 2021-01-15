@@ -1,4 +1,5 @@
 import "../styles/Alert.css";
+import { Link } from "react-router-dom";
 
 const Alert = ({ message, alertType, onAlertPress }) => {
   if (!message) return null;
@@ -7,9 +8,17 @@ const Alert = ({ message, alertType, onAlertPress }) => {
     <div className="Alert">
       <h2>{alertType}!</h2>
       <p>{message}</p>
-      <button className="clearAlert" onClick={onAlertPress}>
-        OK
-      </button>
+      {alertType === "Error" ? (
+        <Link to="/">
+          <button className="clearAlert" onClick={onAlertPress}>
+            BACK
+          </button>
+        </Link>
+      ) : (
+        <button className="clearAlert" onClick={onAlertPress}>
+          OK
+        </button>
+      )}
     </div>
   );
 };
