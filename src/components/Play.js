@@ -20,7 +20,7 @@ const Play = () => {
   const [computerCard, setComputerCard] = useState({});
   const [lostCard, setLostCard] = useState("");
   const [cardHighField, setCardHighField] = useState("");
-  const [showWonCard, setShowWonCard] = useState(false);
+  const [showWonCard, setShowWonCard] = useState("");
 
   const [playerTurn, setPlayerTurn] = useState(true);
 
@@ -98,11 +98,12 @@ const Play = () => {
       setWin("Tie");
     } else if (playerCard[field] > computerCard[field]) {
       //player win
-      setShowWonCard(true);
+      setShowWonCard("Player");
       handleWinnerCards(computerCard, playerCards, setPlayerCards, true);
       handleLoserCards(computerCards, setComputerCards, setComputerCard);
     } else {
       //computer win
+      setShowWonCard("Computer");
       handleWinnerCards(playerCard, computerCards, setComputerCards, false);
       handleLoserCards(playerCards, setPlayerCards, setPlayerCard);
     }
@@ -110,7 +111,7 @@ const Play = () => {
 
   const handleClearWin = () => {
     setWin(false);
-    setShowWonCard(false);
+    setShowWonCard("");
     if (win !== "Tie") {
       setTieCards([]);
     }
@@ -166,7 +167,7 @@ const Play = () => {
             <div className={playerTurn ? "score-active" : "score"}>
               Player: {playerCards.length} cards
             </div>
-            {showWonCard ? (
+            {showWonCard === "Player" ? (
               <Card {...playerCards.find((card) => card.name === lostCard)} /> // Displays the card that the player has won
             ) : (
               <Card {...playerCard} deckSize={playerCards.length} />
@@ -188,11 +189,15 @@ const Play = () => {
             <div className={!playerTurn ? "score-active" : "score"}>
               Computer: {computerCards.length} cards
             </div>
-            <Card
-              {...computerCard}
-              deckSize={computerCards.length}
-              hide={true}
-            />
+            {showWonCard === "Computer" ? (
+              <Card {...computerCards.find((card) => card.name === lostCard)} /> // Displays the card that the player has won
+            ) : (
+              <Card
+                {...computerCard}
+                deckSize={computerCards.length}
+                hide={true}
+              />
+            )}
           </div>
         </div>
 
