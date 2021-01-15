@@ -54,6 +54,7 @@ const Play = () => {
     setWinnerCards,
     playerWin
   ) => {
+    playerWin ? setShowWonCard("Player") : setShowWonCard("Computer");
     setLostCard(loserCard.name);
     winnerCards.push(loserCard);
     setWinnerCards(winnerCards);
@@ -98,12 +99,10 @@ const Play = () => {
       setWin("Tie");
     } else if (playerCard[field] > computerCard[field]) {
       //player win
-      setShowWonCard("Player");
       handleWinnerCards(computerCard, playerCards, setPlayerCards, true);
       handleLoserCards(computerCards, setComputerCards, setComputerCard);
     } else {
       //computer win
-      setShowWonCard("Computer");
       handleWinnerCards(playerCard, computerCards, setComputerCards, false);
       handleLoserCards(playerCards, setPlayerCards, setPlayerCard);
     }
@@ -156,6 +155,7 @@ const Play = () => {
           message: "Could not connect to the server.",
           alertType: "Error",
         });
+        setLoad(false);
       });
   }, []);
 
