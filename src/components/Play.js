@@ -111,7 +111,6 @@ const Play = () => {
   const handleClearWin = () => {
     setWin(false);
     setShowWonCard(false);
-    findHighValue();
     if (win !== "Tie") {
       setTieCards([]);
     }
@@ -119,6 +118,8 @@ const Play = () => {
       setGameWinner("Computer");
     } else if (computerCards.length === 0) {
       setGameWinner("Player");
+    } else {
+      findHighValue();
     }
   };
 
@@ -187,7 +188,11 @@ const Play = () => {
             <div className={!playerTurn ? "score-active" : "score"}>
               Computer: {computerCards.length} cards
             </div>
-            <Card {...computerCard} deckSize={computerCards.length} />
+            <Card
+              {...computerCard}
+              deckSize={computerCards.length}
+              hide={true}
+            />
           </div>
         </div>
 
