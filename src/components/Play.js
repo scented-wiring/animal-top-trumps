@@ -47,11 +47,10 @@ const Play = () => {
     return array;
   };
 
-  const handleAlertPress = () => {
-    setAlert({
-      message: "",
-      alertType: "",
-    });
+  const removeLostCards = (cards, setCards, setCard) => {
+    cards.splice(0, 1);
+    setCards(cards);
+    setCard(cards[0]);
   };
 
   const handlePlayField = (field) => {
@@ -60,18 +59,14 @@ const Play = () => {
       setLostCard(computerCard.name);
       setShowWonCard(true);
       setPlayerCards((playerCards) => [...playerCards, computerCard]);
-      computerCards.splice(0, 1);
-      setComputerCards(computerCards);
-      setComputerCard(computerCards[0]);
+      removeLostCards(computerCards, setComputerCards, setComputerCard);
       setPlayerTurn(true);
       setWin("Player");
     } else {
       //computer win
       setLostCard(playerCard.name);
       setComputerCards((computerCards) => [...computerCards, playerCard]);
-      playerCards.splice(0, 1);
-      setPlayerCards(playerCards);
-      setPlayerCard(playerCards[0]);
+      removeLostCards(playerCards, setPlayerCards, setPlayerCard);
       setPlayerTurn(false);
       setWin("Computer");
 
@@ -101,6 +96,13 @@ const Play = () => {
     } else if (computerCards.length === 0) {
       setGameWinner("Player");
     }
+  };
+
+  const handleAlertPress = () => {
+    setAlert({
+      message: "",
+      alertType: "",
+    });
   };
 
   useEffect(() => {
