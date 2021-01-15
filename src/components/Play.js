@@ -24,6 +24,7 @@ const Play = () => {
 
   const [playerTurn, setPlayerTurn] = useState(true);
 
+  const [tieCards, setTieCards] = useState([]);
   const [win, setWin] = useState("");
   const [gameWinner, setGameWinner] = useState("");
 
@@ -54,18 +55,33 @@ const Play = () => {
   };
 
   const handlePlayField = (field) => {
-    if (playerCard[field] > computerCard[field]) {
+    if (playerCard[field] === computerCard[field]) {
+      //tie
+      setTieCards((tieCards) => [...tieCards, playerCard, computerCard]);
+      removeLostCards(computerCards, setComputerCards, setComputerCard);
+      removeLostCards(playerCards, setPlayerCards, setPlayerCard);
+      setWin("Tie");
+    } else if (playerCard[field] > computerCard[field]) {
       //player win
       setLostCard(computerCard.name);
       setShowWonCard(true);
-      setPlayerCards((playerCards) => [...playerCards, computerCard]);
+      playerCards.push(computerCard);
+      setPlayerCards(playerCards);
+      if (tieCards.length > 0) {
+        setPlayerCards(playerCards.concat(tieCards));
+      }
       removeLostCards(computerCards, setComputerCards, setComputerCard);
       setPlayerTurn(true);
       setWin("Player");
     } else {
       //computer win
       setLostCard(playerCard.name);
-      setComputerCards((computerCards) => [...computerCards, playerCard]);
+      computerCards.push(playerCard);
+      setComputerCards(computerCards);
+      if (tieCards.length > 0) {
+        setComputerCards(computerCards.concat(tieCards));
+      }
+
       removeLostCards(playerCards, setPlayerCards, setPlayerCard);
       setPlayerTurn(false);
       setWin("Computer");
@@ -91,6 +107,9 @@ const Play = () => {
   const handleClearWin = () => {
     setWin(false);
     setShowWonCard(false);
+    if (win !== "Tie") {
+      setTieCards([]);
+    }
     if (playerCards.length === 0) {
       setGameWinner("Computer");
     } else if (computerCards.length === 0) {
@@ -140,7 +159,7 @@ const Play = () => {
           <div className="player">
             <div className="score">Player: {playerCards.length} cards</div>
             {showWonCard ? (
-              <Card {...playerCards[playerCards.length - 1]} /> // Displays the card that the player has won
+              <Card {...playerCards.find((card) => card.name === lostCard)} /> // Displays the card that the player has won
             ) : (
               <Card {...playerCard} deckSize={playerCards.length} />
             )}
@@ -154,15 +173,12 @@ const Play = () => {
             clearWin={handleClearWin}
             cardHighField={cardHighField}
             gameWinner={gameWinner}
+            tieCards={tieCards.length}
           />
 
           <div className="computer">
             <div className="score">Computer: {computerCards.length} cards</div>
-            <Card
-              {...computerCard}
-              hide={true}
-              deckSize={computerCards.length}
-            />
+            <Card {...computerCard} deckSize={computerCards.length} />
           </div>
         </div>
 

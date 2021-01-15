@@ -9,6 +9,7 @@ const GameUI = ({
   clearWin,
   cardHighField,
   gameWinner,
+  tieCards,
 }) => {
   if (gameWinner) {
     return (
@@ -24,13 +25,31 @@ const GameUI = ({
       </div>
     );
   }
+  if (win === "Tie") {
+    return (
+      <div className="game-ui">
+        <div className="status">{win}!</div>
+        <div className="message">
+          Player and computer card added to tie deck.
+          <br />
+          {tieCards} tie cards up for grabs next round!
+        </div>
+        <div className="clearAlert">
+          <button className="clearAlert" onClick={clearWin}>
+            OK
+          </button>
+        </div>
+      </div>
+    );
+  }
   if (win) {
     return (
       <div className="game-ui">
         <div className="win">
           <div className="status">{win} wins!</div>
           <div className="message">
-            {lostCard} added to {win.toLowerCase()}'s deck.
+            {lostCard} {tieCards > 0 && `and ${tieCards} tie cards `}added to{" "}
+            {win.toLowerCase()}'s deck!
           </div>
           <button className="clearAlert" onClick={clearWin}>
             OK
@@ -45,6 +64,9 @@ const GameUI = ({
           <div className="player-turn">
             <div className="status">Player's Turn</div>
             <div className="message">
+              {tieCards > 0 && (
+                <div className="tie">{tieCards} tie cards on the table!</div>
+              )}
               Select a field to play <br /> against your opponent:
             </div>
             <div className="field" onClick={() => playField("cool")}>
