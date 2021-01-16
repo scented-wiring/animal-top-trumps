@@ -4,8 +4,13 @@
   align-items: center;
 }
 
+.starter-deck {
+  font-size: 20px;
+  margin-top: 20px;
+}
+
 .createCardsForm {
-  height: 440px;
+  height: 460px;
   width: 280px;
   padding: 20px 30px 20px 30px;
   display: flex;
@@ -31,4 +36,9 @@ input {
 
 .validation {
   font-size: 17px;
+}
+
+input,
+select {
+  font-size: 18px;
 }

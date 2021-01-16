@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import Alert from "../components/Alert";
+import { addStarterDeck } from "../helpers";
 
 const CreateCards = () => {
   const initialState = {
@@ -181,6 +182,12 @@ const CreateCards = () => {
         </div>
         <button type="submit">Add Card</button>
       </form>
+      <div className="starter-deck">
+        Or press this button to add 16 starter cards to your deck! &rarr;{" "}
+        <button type="submit" onClick={() => addStarterDeck(setAlert)}>
+          Add Cards
+        </button>
+      </div>
       <Link to="/">
         <h3>&larr; BACK</h3>
       </Link>
