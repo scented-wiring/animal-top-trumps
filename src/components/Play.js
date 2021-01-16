@@ -52,13 +52,16 @@ const Play = () => {
   const handleWinnerCards = (
     loserCard,
     winnerCards,
+    setWinnerCard,
     setWinnerCards,
     playerWin
   ) => {
     playerWin ? setShowWonCard("Player") : setShowWonCard("Computer");
     setLostCard(loserCard.name);
+    winnerCards.push(winnerCards.splice(0, 1)[0]);
     winnerCards.push(loserCard);
     setWinnerCards(winnerCards);
+    setWinnerCard(winnerCards[0]);
     tieCards.length > 0 && setWinnerCards(winnerCards.concat(tieCards));
     if (playerWin) {
       setPlayerTurn(true);
@@ -100,11 +103,23 @@ const Play = () => {
       setWin("Tie");
     } else if (playerCard[field] > computerCard[field]) {
       //player win
-      handleWinnerCards(computerCard, playerCards, setPlayerCards, true);
+      handleWinnerCards(
+        computerCard,
+        playerCards,
+        setPlayerCard,
+        setPlayerCards,
+        true
+      );
       handleLoserCards(computerCards, setComputerCards, setComputerCard);
     } else {
       //computer win
-      handleWinnerCards(playerCard, computerCards, setComputerCards, false);
+      handleWinnerCards(
+        playerCard,
+        computerCards,
+        setComputerCard,
+        setComputerCards,
+        false
+      );
       handleLoserCards(playerCards, setPlayerCards, setPlayerCard);
     }
   };
@@ -184,7 +199,8 @@ const Play = () => {
             clearWin={handleClearWin}
             cardHighField={cardHighField}
             gameWinner={gameWinner}
-            tieCards={tieCards.length}
+            tieCards={tieCards}
+            tieCardsLength={tieCards.length}
             noCards={noCards}
           />
 
