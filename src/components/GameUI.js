@@ -83,6 +83,9 @@ const GameUI = ({
         ) : (
           <div className="computer-turn">
             <div className="status">Computer's Turn</div>
+            {tieCards > 0 && (
+              <div className="tie">{tieCards} tie cards on the table!</div>
+            )}
             <div className="message">Computer plays {cardHighField}!</div>
             <button
               className="clearAlert"
