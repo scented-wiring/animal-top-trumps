@@ -26,6 +26,7 @@ const CreateCards = () => {
 
   const handleAddCard = (event) => {
     event.preventDefault();
+    document.getElementsByClassName("createCardsForm")[0].reset();
     if (fields.cool + fields.largeness + fields.handsome > 25) {
       setAlert({
         message:
