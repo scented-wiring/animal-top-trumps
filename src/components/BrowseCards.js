@@ -26,14 +26,17 @@ const BrowseCards = () => {
     setLoad(true);
     axios
       .get("http://localhost:3000/cards")
-      .then((response) => setCards(response.data))
+      .then((response) => {
+        setCards(response.data);
+        setLoad(false);
+      })
       .catch(() => {
         setAlert({
           message: "Could not connect to the server.",
           alertType: "Error",
         });
+        setLoad(false);
       });
-    setLoad(false);
   }, []);
 
   const handleDeleteCard = (id) => {
@@ -79,7 +82,14 @@ const BrowseCards = () => {
               </option>
             ))}
           </select>
-          <Card {...card} deleteCard={handleDeleteCard} />
+          {!cards.length ? (
+            <Card
+              name={`No cards found! Go to "Create Cards" from the menu to add cards to your deck.`}
+              aka="default__card"
+            />
+          ) : (
+            <Card {...card} deleteCard={handleDeleteCard} />
+          )}
         </div>
         <Alert
           message={alert.message}
