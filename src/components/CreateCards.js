@@ -183,7 +183,7 @@ const CreateCards = () => {
         <button type="submit">Add Card</button>
       </form>
       <div className="starter-deck">
-        Or press this button to add 16 starter cards to your deck! &rarr;{" "}
+        Or press this button to add 20 starter cards to your deck! &rarr;{" "}
         <button type="submit" onClick={() => addStarterDeck(setAlert)}>
           Add Cards
         </button>
