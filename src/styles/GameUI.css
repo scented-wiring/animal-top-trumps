@@ -8,11 +8,14 @@
   text-decoration: underline;
   font-size: 50px;
   margin-bottom: 20px;
+  color: white;
+  text-shadow: 3px 3px black;
 }
 
 .message {
   font-size: 25px;
   margin-bottom: 20px;
+  width: 550px;
 }
 
 .field {
