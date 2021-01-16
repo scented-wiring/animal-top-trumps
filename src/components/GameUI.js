@@ -10,6 +10,7 @@ const GameUI = ({
   cardHighField,
   gameWinner,
   tieCards,
+  tieCardsLength,
   noCards,
 }) => {
   if (gameWinner) {
@@ -34,7 +35,7 @@ const GameUI = ({
           Top player and computer cards added to tie deck.
           <br />
           <br />
-          {tieCards} tie cards up for grabs next round!
+          {tieCardsLength} tie cards up for grabs next round!
         </div>
         <div className="clearAlert">
           <button className="clearAlert" onClick={clearWin}>
@@ -50,8 +51,17 @@ const GameUI = ({
         <div className="win">
           <div className="status">{win} wins!</div>
           <div className="message">
-            {lostCard} {tieCards > 0 && `and ${tieCards} tie cards `}added to{" "}
-            {win.toLowerCase()}'s deck!
+            {lostCard}
+            {tieCardsLength > 0
+              ? `, ${tieCards.map((card) => {
+                  if (tieCards.length - 1 === tieCards.indexOf(card)) {
+                    return ` and ${card.name}`;
+                  } else {
+                    return ` ${card.name}`;
+                  }
+                })} `
+              : " "}
+            added to the back of {win.toLowerCase()}'s deck!
           </div>
           <button className="clearAlert" onClick={clearWin}>
             OK
@@ -67,8 +77,10 @@ const GameUI = ({
             <div className="status">
               {noCards ? `No cards found!` : `Player's turn`}
             </div>
-            {tieCards > 0 && (
-              <div className="tie">{tieCards} tie cards on the table!</div>
+            {tieCardsLength > 0 && (
+              <div className="tie">
+                {tieCardsLength} tie cards on the table!
+              </div>
             )}
             <div className="message">
               {noCards
@@ -92,8 +104,10 @@ const GameUI = ({
         ) : (
           <div className="computer-turn">
             <div className="status">Computer's Turn</div>
-            {tieCards > 0 && (
-              <div className="tie">{tieCards} tie cards on the table!</div>
+            {tieCardsLength > 0 && (
+              <div className="tie">
+                {tieCardsLength} tie cards on the table!
+              </div>
             )}
             <div className="message">Computer plays {cardHighField}!</div>
             <button
