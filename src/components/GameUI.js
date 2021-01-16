@@ -10,6 +10,7 @@ const GameUI = ({
   cardHighField,
   gameWinner,
   tieCards,
+  noCards,
 }) => {
   if (gameWinner) {
     return (
@@ -63,22 +64,30 @@ const GameUI = ({
       <div className="game-ui">
         {playerTurn ? (
           <div className="player-turn">
-            <div className="status">Player's Turn</div>
+            <div className="status">
+              {noCards ? `No cards found!` : `Player's turn`}
+            </div>
+            {tieCards > 0 && (
+              <div className="tie">{tieCards} tie cards on the table!</div>
+            )}
             <div className="message">
-              {tieCards > 0 && (
-                <div className="tie">{tieCards} tie cards on the table!</div>
-              )}
-              Select a field to play <br /> against your opponent:
+              {noCards
+                ? `Go to "Create Cards" from the menu to add cards to your deck.`
+                : `Select a field to play against your opponent:`}
             </div>
-            <div className="field" onClick={() => playField("cool")}>
-              Cool
-            </div>
-            <div className="field" onClick={() => playField("largeness")}>
-              Largeness
-            </div>
-            <div className="field" onClick={() => playField("handsome")}>
-              Handsome
-            </div>
+            {!noCards && (
+              <div>
+                <div className="field" onClick={() => playField("cool")}>
+                  Cool
+                </div>
+                <div className="field" onClick={() => playField("largeness")}>
+                  Largeness
+                </div>
+                <div className="field" onClick={() => playField("handsome")}>
+                  Handsome
+                </div>
+              </div>
+            )}
           </div>
         ) : (
           <div className="computer-turn">

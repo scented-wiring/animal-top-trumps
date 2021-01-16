@@ -27,6 +27,7 @@ const Play = () => {
   const [tieCards, setTieCards] = useState([]);
   const [win, setWin] = useState("");
   const [gameWinner, setGameWinner] = useState("");
+  const [noCards, setNoCards] = useState(false);
 
   const [alert, setAlert] = useState(initialState.alert);
   const [load, setLoad] = useState([true]);
@@ -148,6 +149,7 @@ const Play = () => {
         deal(shuffle(response.data));
         setPlayerCard(playerCards[0]);
         setComputerCard(computerCards[0]);
+        !playerCards.length && !computerCards.length && setNoCards(true);
         setLoad(false);
       })
       .catch(() => {
@@ -183,6 +185,7 @@ const Play = () => {
             cardHighField={cardHighField}
             gameWinner={gameWinner}
             tieCards={tieCards.length}
+            noCards={noCards}
           />
 
           <div className="computer">
