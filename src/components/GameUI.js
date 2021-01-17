@@ -17,16 +17,16 @@ const GameUI = ({
 
   if (noCards) {
     //if no cards in deck
-    status = "No cards found!";
+    status = "No cards found";
     message = 'Go to "Create Cards" from the menu to add cards to your deck.';
   } else if (gameWinner) {
     //if game is over
     status = `${gameWinner} wins the game!`;
-    message = "Game over!";
+    message = "Game over";
   } else if (win === "Tie") {
     //if action results in tie
     status = `${win}!`;
-    message = `Top player and computer cards added to tie deck. ${tieCardsLength} tie cards up for grabs next round!`;
+    message = `Top player and computer cards added to tie deck. ${tieCardsLength} tie cards up for grabs next round.`;
   } else if (win) {
     //if action results in win
     status = `${win} wins!`;
@@ -42,7 +42,7 @@ const GameUI = ({
           })} `
         : " "
     }
-    added to the back of ${win.toLowerCase()}'s deck!`;
+    added to the back of ${win.toLowerCase()}'s deck.`;
   } else {
     if (playerTurn) {
       //if player turn
@@ -51,14 +51,14 @@ const GameUI = ({
     } else {
       //if computer turn
       status = "Computer's turn";
-      message = `Computer plays ${cardHighField}!`;
+      message = `Computer plays ${cardHighField}...`;
     }
   }
 
   return (
     <div className="game-ui">
       <div className="status">{status}</div>
-      {!win && tieCardsLength > 0 && (
+      {!win && !gameWinner && tieCardsLength > 0 && (
         <div className="tie">{tieCardsLength} tie cards up for grabs!</div>
       )}
       <div className="message">{message}</div>
