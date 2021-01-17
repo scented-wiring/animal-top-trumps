@@ -72,14 +72,18 @@ const BrowseCards = () => {
       <div className="BrowseCards">
         <h2>Browse Cards</h2>
         <div className="display">
-          <select name="selectCards" className="selectCards" size="15">
+          <select
+            name="selectCards"
+            id="selectCards"
+            size="15"
+            onChange={(e) =>
+              setCard(
+                cards[document.getElementById("selectCards").selectedIndex]
+              )
+            }
+          >
             {cards.map((card) => (
-              <option
-                key={cards.indexOf(card)}
-                onClick={() => setCard(cards[cards.indexOf(card)])}
-              >
-                {card.name}
-              </option>
+              <option key={cards.indexOf(card)}>{card.name}</option>
             ))}
           </select>
           {!cards.length ? (
