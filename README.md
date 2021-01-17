@@ -6,7 +6,8 @@ This app allows you to create personalised animal Top Trump cards and battle aga
 
 Follow the instructions in the [animal-toptrumps-api](https://github.com/scented-wiring/animal-toptrumps-api) to create an API to store your data.
 
-Then clone this repo, install dependencies (react, react-router-dom, axios) and run `npm start` to start the app.
+Then clone this repo, install dependencies (`npm i react react-router-dom axios`)
+and run `npm start` to start the app.
 
 ## To-do
 
