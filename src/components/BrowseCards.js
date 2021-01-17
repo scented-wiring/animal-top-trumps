@@ -60,13 +60,6 @@ const BrowseCards = () => {
       });
   };
 
-  const handleAlertPress = () => {
-    setAlert({
-      message: "",
-      alertType: "",
-    });
-  };
-
   if (!load) {
     return (
       <div className="BrowseCards">
@@ -96,9 +89,9 @@ const BrowseCards = () => {
           )}
         </div>
         <Alert
+          setAlert={setAlert}
           message={alert.message}
           alertType={alert.alertType}
-          onAlertPress={handleAlertPress}
         />
         <Link to="/">
           <h3>&larr; BACK</h3>

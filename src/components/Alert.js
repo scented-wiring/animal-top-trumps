@@ -1,7 +1,14 @@
 import "../styles/Alert.css";
 import { Link } from "react-router-dom";
 
-const Alert = ({ message, alertType, onAlertPress }) => {
+const Alert = ({ setAlert, message, alertType }) => {
+  const clearAlert = () => {
+    setAlert({
+      message: "",
+      alertType: "",
+    });
+  };
+
   if (!message) return null;
 
   return (
@@ -10,12 +17,12 @@ const Alert = ({ message, alertType, onAlertPress }) => {
       <p>{message}</p>
       {alertType === "Error" ? (
         <Link to="/">
-          <button className="clearAlert" onClick={onAlertPress}>
+          <button className="clearAlert" onClick={() => clearAlert()}>
             BACK
           </button>
         </Link>
       ) : (
-        <button className="clearAlert" onClick={onAlertPress}>
+        <button className="clearAlert" onClick={() => clearAlert()}>
           OK
         </button>
       )}

@@ -139,13 +139,6 @@ const Play = () => {
     }
   };
 
-  const handleAlertPress = () => {
-    setAlert({
-      message: "",
-      alertType: "",
-    });
-  };
-
   useEffect(() => {
     const deal = (array) => {
       let i;
@@ -221,9 +214,9 @@ const Play = () => {
         </div>
 
         <Alert
+          setAlert={setAlert}
           message={alert.message}
           alertType={alert.alertType}
-          onAlertPress={handleAlertPress}
         />
 
         <Link to="/">

@@ -66,21 +66,14 @@ const CreateCards = () => {
     }
   };
 
-  const handleAlertPress = () => {
-    setAlert({
-      message: "",
-      alertType: "",
-    });
-  };
-
   return (
     <div className="CreateCards">
       <h2>Card Creator</h2>
       <form className="createCardsForm" onSubmit={handleAddCard}>
         <Alert
+          setAlert={setAlert}
           message={alert.message}
           alertType={alert.alertType}
-          onAlertPress={handleAlertPress}
         />
         <label htmlFor="name">
           Name
