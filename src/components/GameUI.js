@@ -59,7 +59,7 @@ const GameUI = ({
     <div className="game-ui">
       <div className="status">{status}</div>
       {!win && tieCardsLength > 0 && (
-        <div className="tie">{tieCardsLength} tie cards on the table!</div>
+        <div className="tie">{tieCardsLength} tie cards up for grabs!</div>
       )}
       <div className="message">{message}</div>
       {gameWinner && (
