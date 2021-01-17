@@ -172,6 +172,11 @@ const Play = () => {
   if (!load) {
     return (
       <div className="Play">
+        <Alert
+          setAlert={setAlert}
+          message={alert.message}
+          alertType={alert.alertType}
+        />
         <div className="game-area">
           <div className="player">
             <div className={playerTurn ? "score-active" : "score"}>
@@ -212,12 +217,6 @@ const Play = () => {
             )}
           </div>
         </div>
-
-        <Alert
-          setAlert={setAlert}
-          message={alert.message}
-          alertType={alert.alertType}
-        />
 
         <Link to="/">
           <h3>&larr; BACK</h3>

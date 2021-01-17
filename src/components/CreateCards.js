@@ -68,13 +68,13 @@ const CreateCards = () => {
 
   return (
     <div className="CreateCards">
+      <Alert
+        setAlert={setAlert}
+        message={alert.message}
+        alertType={alert.alertType}
+      />
       <h2>Card Creator</h2>
       <form className="createCardsForm" onSubmit={handleAddCard}>
-        <Alert
-          setAlert={setAlert}
-          message={alert.message}
-          alertType={alert.alertType}
-        />
         <label htmlFor="name">
           Name
           <input

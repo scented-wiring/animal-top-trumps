@@ -60,6 +60,24 @@ const BrowseCards = () => {
       });
   };
 
+  const handleDeleteAllCards = () => {
+    axios
+      .delete("http://localhost:3000/cards")
+      .then(() => setCards([]))
+      .then(() => {
+        setAlert({
+          message: "Cards deleted",
+          alertType: "Success",
+        });
+      })
+      .catch(() => {
+        setAlert({
+          message: "Could not connect to the server",
+          alertType: "Error",
+        });
+      });
+  };
+
   if (!load) {
     return (
       <div className="BrowseCards">
@@ -88,10 +106,24 @@ const BrowseCards = () => {
             <Card {...card} deleteCard={handleDeleteCard} />
           )}
         </div>
+        {cards.length > 0 && (
+          <button
+            id="delete"
+            onClick={() =>
+              setAlert({
+                message: "Deleting all cards cannot be undone.",
+                alertType: "Are you sure?",
+              })
+            }
+          >
+            DELETE ALL CARDS
+          </button>
+        )}
         <Alert
           setAlert={setAlert}
           message={alert.message}
           alertType={alert.alertType}
+          deleteAllCards={handleDeleteAllCards}
         />
         <Link to="/">
           <h3>&larr; BACK</h3>

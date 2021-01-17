@@ -1,7 +1,6 @@
 .Play {
   display: flex;
   flex-direction: column;
-  margin-top: 40px;
   align-items: center;
   width: 100%;
 }
@@ -9,7 +8,7 @@
 .game-area {
   display: flex;
   flex-direction: row;
-  margin-bottom: 20px;
+  margin: 40px 0 20px 0;
   width: 100%;
   justify-content: space-between;
 }
