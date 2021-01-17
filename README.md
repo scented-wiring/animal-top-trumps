@@ -8,6 +8,12 @@ Follow the instructions in the [animal-toptrumps-api](https://github.com/scented
 
 Then clone this repo, install dependencies (react, react-router-dom, axios) and run `npm start` to start the app.
 
+## To-do
+
+- Add styling for mobile devices
+- Finish tests
+- Fix useEffect dependency array error message
+
 ## Built with
 
 - React
