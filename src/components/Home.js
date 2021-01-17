@@ -2,6 +2,7 @@ import "../styles/Home.css";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import pokerdogs from "../pokerdogs.png";
+import twitter from "../twitter.png";
 
 const Home = () => {
   const [hover, setHover] = useState("");
@@ -50,6 +51,16 @@ const Home = () => {
           "View the stats of (or delete) cards from your Top Trumps deck."}
         {hover === "create" &&
           "Add personalised cards to your Top Trumps deck."}
+      </div>
+      <div id="footer">
+        Created by Tom Hammersley{" "}
+        <a
+          href="https://twitter.com/scentedwiring"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <img id="twitter" src={twitter} alt="twitter" height="25px" />
+        </a>
       </div>
     </div>
   );

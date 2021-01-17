@@ -32,10 +32,20 @@
   margin: 0 auto 0 auto;
   font-size: 25px;
   text-align: center;
+  height: 60px;
 }
 
 #pokerdogs {
   display: flex;
   align-self: center;
   margin-top: 15px;
+}
+
+#footer {
+  display: flex;
+  align-self: center;
+}
+
+#twitter {
+  margin-left: 6px;
 }
