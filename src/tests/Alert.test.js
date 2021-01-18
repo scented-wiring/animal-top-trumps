@@ -1,6 +1,5 @@
-import { getByText, render } from "@testing-library/react";
+import { render, fireEvent } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
-import { fireEvent } from "@testing-library/react";
 import Alert from "../components/Alert";
 
 test("renders correctly", () => {
