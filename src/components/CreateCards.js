@@ -82,6 +82,7 @@ const CreateCards = () => {
             name="name"
             autoComplete="off"
             onChange={handleFieldChange}
+            maxLength="17"
             pattern="^(?=.*\S).+$"
             required
             title="Must be at least 1 non-space character"
@@ -151,6 +152,7 @@ const CreateCards = () => {
             name="aka"
             autoComplete="off"
             onChange={handleFieldChange}
+            maxLength="20"
             pattern="^(?=.*\S).+$"
             required
             title="Must be at least 1 non-space character"
@@ -170,7 +172,7 @@ const CreateCards = () => {
             <option value="Chaotic Evil">Chaotic Evil</option>
           </select>
         </label>
-        <div className="validation">
+        <div className="note">
           Note: "aka" and "alignment" are just for fun and do not have any
           bearing on the gameplay.
         </div>

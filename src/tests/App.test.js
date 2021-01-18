@@ -1,4 +1,4 @@
-import { render } from "@testing-library/react";
+import { getAllByRole, getByText, render } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
 import App from "../components/App";
 
@@ -18,4 +18,14 @@ test("renders the page title", () => {
     </BrowserRouter>
   );
   expect(getByText("Animal Top Trumps")).toBeInTheDocument();
+});
+
+test("renders two links", () => {
+  const { getAllByRole } = render(
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  );
+  expect(getAllByRole("link")).toBeTruthy();
+  console.log(getAllByRole("link")[0]);
 });
