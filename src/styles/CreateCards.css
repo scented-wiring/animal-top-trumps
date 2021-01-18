@@ -6,11 +6,11 @@
 
 .starter-deck {
   font-size: 20px;
-  margin-top: 20px;
+  margin-top: 15px;
 }
 
 .createCardsForm {
-  height: 460px;
+  height: 420px;
   width: 280px;
   padding: 20px 30px 20px 30px;
   display: flex;
@@ -18,16 +18,17 @@
   background-color: #00bdcb;
   border: 2px black solid;
   border-radius: 30px;
+  box-shadow: 10px 10px #004742;
 }
 
 label {
   display: grid;
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .CreateCards select,
 input {
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
 .selectNumber {
@@ -35,10 +36,10 @@ input {
 }
 
 .validation {
-  font-size: 17px;
+  font-size: 15px;
 }
 
 input,
 select {
-  font-size: 18px;
+  font-size: 15px;
 }

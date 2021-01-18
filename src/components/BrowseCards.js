@@ -12,7 +12,7 @@ const BrowseCards = () => {
       alertType: "",
     },
     card: {
-      name: "Choose a card from the left to view its stats",
+      name: "Choose a card from the left to view its stats.",
       aka: "default__card",
     },
   };

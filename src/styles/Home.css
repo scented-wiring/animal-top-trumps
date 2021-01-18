@@ -9,14 +9,15 @@
 }
 
 .buttons button {
-  height: 100px;
+  height: 75px;
   width: 220px;
   background-color: #009fd6;
   margin: 25px 25px 25px 15px;
   font-family: "Staatliches", sans-serif;
-  font-size: 35px;
-  border: 3px black solid;
+  font-size: 30px;
+  border: 2px black solid;
   transition: all 0.4s ease 0s;
+  box-shadow: 10px 10px #004742;
 }
 
 .buttons button:hover {
@@ -27,16 +28,16 @@
 }
 
 .description {
-  margin: 0 auto 0 auto;
+  margin: 8px auto 0 auto;
   font-size: 25px;
   text-align: center;
-  height: 60px;
+  height: 50px;
 }
 
 #pokerdogs {
   display: flex;
   align-self: center;
-  margin-top: 15px;
+  margin-top: 25px;
 }
 
 #footer {

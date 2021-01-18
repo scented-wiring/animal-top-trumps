@@ -13,7 +13,7 @@ const Home = () => {
         id="pokerdogs"
         src={pokerdogs}
         alt="dogs playing poker"
-        width="550px"
+        width="500px"
       />
       <div className="buttons">
         <Link to="/play">
