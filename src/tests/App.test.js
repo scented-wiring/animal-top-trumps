@@ -1,4 +1,4 @@
-import { getAllByRole, getByText, render } from "@testing-library/react";
+import { render, fireEvent } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
 import App from "../components/App";
 
@@ -20,12 +20,23 @@ test("renders the page title", () => {
   expect(getByText("Animal Top Trumps")).toBeInTheDocument();
 });
 
-test("renders two links", () => {
+test("renders two home links", () => {
   const { getAllByRole } = render(
     <BrowserRouter>
       <App />
     </BrowserRouter>
   );
   expect(getAllByRole("link")).toBeTruthy();
-  console.log(getAllByRole("link")[0]);
+  expect(getAllByRole("link")[0]).toHaveAttribute("href", "/");
+  expect(getAllByRole("link")[1]).toHaveAttribute("href", "/");
+});
+
+test("switches components", () => {
+  const { getByText } = render(
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  );
+  fireEvent.click(getByText("Browse Cards"));
+  expect(getByText("Loading...")).toBeTruthy();
 });
