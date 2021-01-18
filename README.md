@@ -13,7 +13,6 @@ and run `npm start` to start the app.
 
 - Add styling for mobile devices
 - Finish tests
-- Fix useEffect dependency array error message
 
 ## Built with
 
