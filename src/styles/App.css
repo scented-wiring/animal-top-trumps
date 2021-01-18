@@ -11,7 +11,7 @@
   align-items: center;
   justify-content: center;
   background-color: #73ed8f;
-  border-bottom: 2px black solid;
+  border-bottom: 3px black solid;
   letter-spacing: 3px;
   transition: all 0.4s ease 0s;
   padding: 15px 0 15px 0;
@@ -32,21 +32,19 @@
 
 button {
   align-self: center;
-  height: 30px;
+  height: 35px;
   width: 100px;
   background-color: #73ed8f;
   margin-top: 10px;
   font-family: "Staatliches", sans-serif;
   font-size: 20px;
-  border: 2px black solid;
+  border: 3px black solid;
   transition: all 0.4s ease 0s;
 }
 
 button:hover {
   background: black;
   color: white;
-  width: 120px;
-  letter-spacing: 3px;
   transition: all 0.4s ease 0s;
 }
 
@@ -79,5 +77,4 @@ h3 {
 h3:hover {
   transition: all 0.4s ease 0s;
   color: white;
-  letter-spacing: 3px;
 }

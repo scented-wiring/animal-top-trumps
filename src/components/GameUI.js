@@ -88,7 +88,7 @@ const GameUI = ({
           </div>
         </div>
       )}
-      {!playerTurn && !win && (
+      {!playerTurn && !win && !gameWinner && (
         <button className="clearAlert" onClick={() => playField(cardHighField)}>
           OK
         </button>
