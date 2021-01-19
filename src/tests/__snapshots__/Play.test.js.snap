@@ -12,7 +12,7 @@ exports[`BrowseCards component renders correctly 1`] = `
         class="player"
       >
         <div
-          class="score"
+          class="score-active"
         >
           Player: 
           2
@@ -27,24 +27,27 @@ exports[`BrowseCards component renders correctly 1`] = `
             <div
               class="name"
             >
-              Elephant
+              Dog
             </div>
             <div
               class="other-stat"
             >
               Cool: 
+              6
                
             </div>
             <div
               class="other-stat"
             >
               Largeness: 
+              6
                
             </div>
             <div
               class="other-stat"
             >
               Handsome: 
+              10
                
             </div>
             <div
@@ -53,6 +56,7 @@ exports[`BrowseCards component renders correctly 1`] = `
               aka: 
               <br />
               "
+              Hairy friend
               "
                
             </div>
@@ -61,6 +65,7 @@ exports[`BrowseCards component renders correctly 1`] = `
             >
               Alignment:
               <br />
+              Good
                
             </div>
           </div>
@@ -70,20 +75,18 @@ exports[`BrowseCards component renders correctly 1`] = `
         class="game-ui"
       >
         <div
-          class="player-turn"
+          class="status"
         >
-          <div
-            class="turn"
-          >
-            Player's Turn
-          </div>
-          <div
-            class="select-field"
-          >
-            Select a field to play 
-            <br />
-             against your opponent:
-          </div>
+          Player's turn
+        </div>
+        <div
+          class="message"
+        >
+          Select a field to play against your opponent:
+        </div>
+        
+        
+        <div>
           <div
             class="field"
           >
