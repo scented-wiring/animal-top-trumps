@@ -4,7 +4,12 @@ import { BrowserRouter } from "react-router-dom";
 import BrowseCards from "../components/BrowseCards";
 import axios from "axios";
 import MockAdapter from "axios-mock-adapter";
-import { fireEvent, getByText, findByText } from "@testing-library/react";
+import {
+  fireEvent,
+  getByText,
+  findByText,
+  getByRole,
+} from "@testing-library/react";
 
 const renderContainer = () => {
   render(
@@ -141,5 +146,19 @@ describe("BrowseCards component", () => {
     fireEvent.click(getByText(container, "DELETE ALL CARDS"));
 
     expect(container.textContent).toContain("Are you sure?");
+  });
+
+  test("renders a home link", async () => {
+    var mock = new MockAdapter(axios);
+    mock.onGet("http://localhost:3000/cards").reply(200, fakeResponse);
+    mock.onDelete("http://localhost:3000/cards").reply(200);
+
+    await act(async () => {
+      renderContainer();
+    });
+
+    const link = getByRole(container, "link");
+    expect(link.getAttribute("href")).toBe("/");
+    expect(container.textContent).toContain("← BACK");
   });
 });
