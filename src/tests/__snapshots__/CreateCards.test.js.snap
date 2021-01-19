@@ -14,10 +14,11 @@ exports[`Create Cards component renders correctly 1`] = `
       <label
         for="name"
       >
-        Name*
+        Name
         <input
           autocomplete="off"
           id="name"
+          maxlength="17"
           name="name"
           pattern="^(?=.*\\\\S).+$"
           required=""
@@ -27,7 +28,7 @@ exports[`Create Cards component renders correctly 1`] = `
       <label
         for="cool"
       >
-        Cool*
+        Cool
         <select
           class="selectNumber"
           name="cool"
@@ -87,7 +88,7 @@ exports[`Create Cards component renders correctly 1`] = `
       <label
         for="largeness"
       >
-        Largeness*
+        Largeness
         <select
           class="selectNumber"
           name="largeness"
@@ -147,7 +148,7 @@ exports[`Create Cards component renders correctly 1`] = `
       <label
         for="handsome"
       >
-        Handsome*
+        Handsome
         <select
           class="selectNumber"
           name="handsome"
@@ -211,7 +212,11 @@ exports[`Create Cards component renders correctly 1`] = `
         <input
           autocomplete="off"
           id="aka"
+          maxlength="20"
           name="aka"
+          pattern="^(?=.*\\\\S).+$"
+          required=""
+          title="Must be at least 1 non-space character"
         />
       </label>
       <label
@@ -222,12 +227,6 @@ exports[`Create Cards component renders correctly 1`] = `
           id="alignment"
           name="alignment"
         >
-          <option
-            type="text"
-            value=""
-          >
-            -
-          </option>
           <option
             value="Lawful Good"
           >
@@ -269,24 +268,34 @@ exports[`Create Cards component renders correctly 1`] = `
             Neutral Evil
           </option>
           <option
-            value="Chaoti Evil"
+            value="Chaotic Evil"
           >
             Chaotic Evil
           </option>
         </select>
       </label>
       <div
-        class="validation"
+        class="note"
       >
-        * Required fields
+        Note: "aka" and "alignment" are just for fun and do not have any bearing on the gameplay.
       </div>
       <button
-        class="addCardButton"
         type="submit"
       >
         Add Card
       </button>
     </form>
+    <div
+      class="starter-deck"
+    >
+      Or press this button to add 20 starter cards to your deck! →
+       
+      <button
+        type="submit"
+      >
+        Add Cards
+      </button>
+    </div>
     <a
       href="/"
     >

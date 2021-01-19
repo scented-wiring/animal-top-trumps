@@ -49,3 +49,53 @@ exports[`BrowseCards component renders correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`Card component renders correctly 1`] = `
+<div>
+  <div
+    class="Card-border"
+  >
+    <div
+      class="Card"
+    >
+      <div
+        class="name"
+      />
+      <div
+        class="other-stat"
+      >
+        Cool: 
+         
+      </div>
+      <div
+        class="other-stat"
+      >
+        Largeness: 
+         
+      </div>
+      <div
+        class="other-stat"
+      >
+        Handsome: 
+         
+      </div>
+      <div
+        class="other-stat"
+      >
+        aka: 
+        <br />
+        "
+        "
+         
+      </div>
+      <div
+        class="other-stat"
+      >
+        Alignment:
+        <br />
+         
+      </div>
+    </div>
+  </div>
+</div>
+`;

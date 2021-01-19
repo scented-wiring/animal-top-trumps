@@ -34,37 +34,37 @@ afterEach(() => {
 });
 
 describe("Create Cards component", () => {
-  test("renders correctly", () => {
+  xtest("renders correctly", () => {
     renderContainer();
     expect(container).toMatchSnapshot();
   });
 
-  test("renders home link", () => {
+  xtest("renders home link", () => {
     renderContainer();
     const link = getByRole(container, "link");
     expect(link.textContent).toContain("← BACK");
     expect(link.getAttribute("href")).toBe("/");
   });
 
-  test("renders 2 textboxes", () => {
+  xtest("renders 2 textboxes", () => {
     renderContainer();
     const textboxes = getAllByRole(container, "textbox");
     expect(textboxes).toHaveLength(2);
   });
 
-  test("renders 4 select boxes", () => {
+  xtest("renders 4 select boxes", () => {
     renderContainer();
     const selectBoxes = getAllByRole(container, "combobox");
     expect(selectBoxes).toHaveLength(4);
   });
 
-  test("renders a submit button", () => {
+  xtest("renders a submit button", () => {
     renderContainer();
     const button = getByRole(container, "button");
     expect(button).toBeInTheDocument();
   });
 
-  test("renders a success message on submit", async () => {
+  xtest("renders a success message on submit", async () => {
     var mock = new MockAdapter(axios);
     mock.onPost("http://localhost:3000/cards").reply(200);
 
@@ -80,7 +80,7 @@ describe("Create Cards component", () => {
     expect(successMessage).toBeInTheDocument();
   });
 
-  test("renders an error message on submit", async () => {
+  xtest("renders an error message on submit", async () => {
     var mock = new MockAdapter(axios);
     mock.onPost("http://localhost:3000/cards").reply(404);
 

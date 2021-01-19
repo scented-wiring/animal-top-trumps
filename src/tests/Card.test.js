@@ -15,7 +15,7 @@ afterEach(() => {
   container = null;
 });
 
-describe("BrowseCards component", () => {
+describe("Card component", () => {
   test("renders correctly", () => {
     render(<Card />, container);
     expect(container).toMatchSnapshot();
@@ -29,6 +29,19 @@ describe("BrowseCards component", () => {
 
     expect(container.textContent).toContain("test");
     expect(container.textContent).not.toContain("do not render");
+  });
+
+  test("renders the back of card if hide is true", () => {
+    render(<Card name="test" hide={true} />, container);
+
+    expect(container.textContent).toContain("Animal Top Trumps");
+    expect(container.textContent).not.toContain("test");
+  });
+
+  test("renders nothing if decksize equals 0", () => {
+    render(<Card name="test" deckSize={0} />, container);
+
+    expect(container.textContent).not.toContain("test");
   });
 
   test("renders all card stats", () => {
