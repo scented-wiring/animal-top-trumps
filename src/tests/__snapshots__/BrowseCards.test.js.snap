@@ -12,7 +12,7 @@ exports[`BrowseCards component renders correctly 1`] = `
       class="display"
     >
       <select
-        class="selectCards"
+        id="selectCards"
         name="selectCards"
         size="15"
       >
@@ -35,11 +35,16 @@ exports[`BrowseCards component renders correctly 1`] = `
           <div
             class="other-stat"
           >
-            Choose a card from the left to view its stats
+            Choose a card from the left to view its stats.
           </div>
         </div>
       </div>
     </div>
+    <button
+      id="delete"
+    >
+      DELETE ALL CARDS
+    </button>
     <a
       href="/"
     >

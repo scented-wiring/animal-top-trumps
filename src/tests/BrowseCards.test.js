@@ -4,7 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 import BrowseCards from "../components/BrowseCards";
 import axios from "axios";
 import MockAdapter from "axios-mock-adapter";
-import { fireEvent, getByText } from "@testing-library/react";
+import { fireEvent, getByText, findByText } from "@testing-library/react";
 
 const renderContainer = () => {
   render(
@@ -45,6 +45,12 @@ describe("BrowseCards component", () => {
     expect(container).toMatchSnapshot();
   });
 
+  test("renders a loading message", async () => {
+    renderContainer();
+
+    expect(await findByText(container, "Loading...")).toBeInTheDocument();
+  });
+
   test("renders an alert if API can't connect to server", async () => {
     var mock = new MockAdapter(axios);
     mock.onGet("http://localhost:3000/cards").reply(404);
@@ -54,8 +60,19 @@ describe("BrowseCards component", () => {
     });
 
     expect(container.textContent).toContain(
-      "Error!Could not connect to the server"
+      "ErrorCould not connect to the server"
     );
+  });
+
+  test("renders a message if no cards found", async () => {
+    var mock = new MockAdapter(axios);
+    mock.onGet("http://localhost:3000/cards").reply(200, []);
+
+    await act(async () => {
+      renderContainer();
+    });
+
+    expect(container.textContent).toContain("No cards found!");
   });
 
   test("renders a page title", async () => {
@@ -103,10 +120,26 @@ describe("BrowseCards component", () => {
       renderContainer();
     });
 
-    fireEvent.click(getByText(container, "Cat"));
+    fireEvent.change(document.getElementById("selectCards"), {
+      target: { value: "Cat" },
+    });
 
     expect(container.textContent).toContain(
       'aka: "Furry demon" Alignment:Lawful Evil'
     );
+  });
+
+  test("renders an alert on 'delete all cards' press", async () => {
+    var mock = new MockAdapter(axios);
+    mock.onGet("http://localhost:3000/cards").reply(200, fakeResponse);
+    mock.onDelete("http://localhost:3000/cards").reply(200);
+
+    await act(async () => {
+      renderContainer();
+    });
+
+    fireEvent.click(getByText(container, "DELETE ALL CARDS"));
+
+    expect(container.textContent).toContain("Are you sure?");
   });
 });
