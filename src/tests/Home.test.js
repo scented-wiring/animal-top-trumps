@@ -44,5 +44,5 @@ test("renders footer text", () => {
       <Home />
     </BrowserRouter>
   );
-  expect(getByText("Created by Tom Hammersley")).toBeInTheDocument();
+  expect(getByText("Created by Tom Hammersley 2021")).toBeInTheDocument();
 });

@@ -52,8 +52,8 @@ const Home = () => {
         {hover === "create" &&
           "Add personalised cards to your Top Trumps deck."}
       </div>
-      <div id="footer">
-        Created by Tom Hammersley{" "}
+      <footer>
+        Created by Tom Hammersley 2021{" "}
         <a
           href="https://twitter.com/scentedwiring"
           target="_blank"
@@ -61,7 +61,7 @@ const Home = () => {
         >
           <img id="twitter" src={twitter} alt="twitter" height="25px" />
         </a>
-      </div>
+      </footer>
     </div>
   );
 };
