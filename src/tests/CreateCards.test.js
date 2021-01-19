@@ -34,37 +34,37 @@ afterEach(() => {
 });
 
 describe("Create Cards component", () => {
-  xtest("renders correctly", () => {
+  test("renders correctly", () => {
     renderContainer();
     expect(container).toMatchSnapshot();
   });
 
-  xtest("renders home link", () => {
+  test("renders home link", () => {
     renderContainer();
     const link = getByRole(container, "link");
     expect(link.textContent).toContain("← BACK");
     expect(link.getAttribute("href")).toBe("/");
   });
 
-  xtest("renders 2 textboxes", () => {
+  test("renders 2 textboxes", () => {
     renderContainer();
     const textboxes = getAllByRole(container, "textbox");
     expect(textboxes).toHaveLength(2);
   });
 
-  xtest("renders 4 select boxes", () => {
+  test("renders 4 select boxes", () => {
     renderContainer();
     const selectBoxes = getAllByRole(container, "combobox");
     expect(selectBoxes).toHaveLength(4);
   });
 
-  xtest("renders a submit button", () => {
+  test("renders two submit button", () => {
     renderContainer();
-    const button = getByRole(container, "button");
-    expect(button).toBeInTheDocument();
+    const buttons = getAllByRole(container, "button");
+    expect(buttons).toHaveLength(2);
   });
 
-  xtest("renders a success message on submit", async () => {
+  test("renders a success message on card submit", async () => {
     var mock = new MockAdapter(axios);
     mock.onPost("http://localhost:3000/cards").reply(200);
 
@@ -73,14 +73,14 @@ describe("Create Cards component", () => {
     });
 
     await act(async () => {
-      fireEvent.click(getByRole(container, "button"));
+      fireEvent.click(getAllByRole(container, "button")[0]);
     });
 
-    const successMessage = getByText(container, "Success!");
-    expect(successMessage).toBeInTheDocument();
+    expect(getByText(container, "Success")).toBeInTheDocument();
+    expect(getByText(container, "Card created.")).toBeInTheDocument();
   });
 
-  xtest("renders an error message on submit", async () => {
+  test("renders an error message on card submit", async () => {
     var mock = new MockAdapter(axios);
     mock.onPost("http://localhost:3000/cards").reply(404);
 
@@ -89,10 +89,43 @@ describe("Create Cards component", () => {
     });
 
     await act(async () => {
-      fireEvent.click(getByRole(container, "button"));
+      fireEvent.click(getAllByRole(container, "button")[0]);
     });
 
-    const errorMessage = getByText(container, "Error!");
-    expect(errorMessage).toBeInTheDocument();
+    expect(getByText(container, "Error")).toBeInTheDocument();
+  });
+
+  test("renders a success message on starter cards submit", async () => {
+    var mock = new MockAdapter(axios);
+    mock.onPost("http://localhost:3000/cards").reply(200);
+
+    await act(async () => {
+      renderContainer();
+    });
+
+    await act(async () => {
+      fireEvent.click(getAllByRole(container, "button")[1]);
+    });
+
+    expect(getByText(container, "Success")).toBeInTheDocument();
+    expect(getByText(container, "Starter cards added.")).toBeInTheDocument();
+  });
+
+  test("renders an error message on starter cards submit", async () => {
+    var mock = new MockAdapter(axios);
+    mock.onPost("http://localhost:3000/cards").reply(404);
+
+    await act(async () => {
+      renderContainer();
+    });
+
+    await act(async () => {
+      fireEvent.click(getAllByRole(container, "button")[1]);
+    });
+
+    expect(getByText(container, "Error")).toBeInTheDocument();
+    expect(
+      getByText(container, "Could not connect to the server.")
+    ).toBeInTheDocument();
   });
 });
