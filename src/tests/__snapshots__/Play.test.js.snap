@@ -1,10 +1,29 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`BrowseCards component renders correctly 1`] = `
+exports[`Play component renders correctly 1`] = `
 <div>
   <div
     class="Play"
   >
+    <div
+      class="Alert"
+    >
+      <h2>
+        Error
+      </h2>
+      <p>
+        Could not connect to the server.
+      </p>
+      <a
+        href="/"
+      >
+        <button
+          class="clearAlert"
+        >
+          BACK
+        </button>
+      </a>
+    </div>
     <div
       class="game-area"
     >
@@ -15,61 +34,12 @@ exports[`BrowseCards component renders correctly 1`] = `
           class="score-active"
         >
           Player: 
-          2
+          0
            cards
         </div>
         <div
-          class="Card-border"
-        >
-          <div
-            class="Card"
-          >
-            <div
-              class="name"
-            >
-              Dog
-            </div>
-            <div
-              class="other-stat"
-            >
-              Cool: 
-              6
-               
-            </div>
-            <div
-              class="other-stat"
-            >
-              Largeness: 
-              6
-               
-            </div>
-            <div
-              class="other-stat"
-            >
-              Handsome: 
-              10
-               
-            </div>
-            <div
-              class="other-stat"
-            >
-              aka: 
-              <br />
-              "
-              Hairy friend
-              "
-               
-            </div>
-            <div
-              class="other-stat"
-            >
-              Alignment:
-              <br />
-              Good
-               
-            </div>
-          </div>
-        </div>
+          class="no-cards"
+        />
       </div>
       <div
         class="game-ui"
@@ -111,27 +81,12 @@ exports[`BrowseCards component renders correctly 1`] = `
           class="score"
         >
           Computer: 
-          1
+          0
            cards
         </div>
         <div
-          class="hidden-card"
-        >
-          <div
-            class="text"
-          >
-            Animal 
-            <br />
-            Top Trumps
-          </div>
-          <img
-            alt="Logo"
-            height="96px"
-            id="card-logo"
-            src="dog.png"
-            width="96px"
-          />
-        </div>
+          class="no-cards"
+        />
       </div>
     </div>
     <a
