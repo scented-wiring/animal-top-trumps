@@ -12,7 +12,6 @@ and run `npm start` to start the app.
 ## To-do
 
 - Add styling for mobile devices
-- Finish tests
 
 ## Built with
 
