@@ -1,4 +1,4 @@
-import { render } from "@testing-library/react";
+import { render, fireEvent } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
 import Home from "../components/Home";
 
@@ -39,12 +39,53 @@ describe("Home component", () => {
     expect(getAllByRole("link")).toHaveLength(4);
   });
 
-  test("renders footer text", () => {
+  test("renders description on button mouse over and removes on mouse out", () => {
     const { getByText } = render(
       <BrowserRouter>
         <Home />
       </BrowserRouter>
     );
     expect(getByText("Created by Tom Hammersley 2021")).toBeInTheDocument();
+  });
+
+  test("renders footer text", () => {
+    const { queryByText } = render(
+      <BrowserRouter>
+        <Home />
+      </BrowserRouter>
+    );
+
+    fireEvent.mouseOver(queryByText("Play"));
+    expect(
+      queryByText(
+        "Battle against a highly skilled computer using your Top Trumps deck."
+      )
+    ).toBeInTheDocument();
+    fireEvent.mouseOut(queryByText("Play"));
+    expect(
+      queryByText(
+        "Battle against a highly skilled computer using your Top Trumps deck."
+      )
+    ).not.toBeInTheDocument();
+    fireEvent.mouseOver(queryByText("Browse Cards"));
+    expect(
+      queryByText(
+        "View the stats of (or delete) cards from your Top Trumps deck."
+      )
+    ).toBeInTheDocument();
+    fireEvent.mouseOut(queryByText("Browse Cards"));
+    expect(
+      queryByText(
+        "View the stats of (or delete) cards from your Top Trumps deck."
+      )
+    ).not.toBeInTheDocument();
+    fireEvent.mouseOver(queryByText("Create Cards"));
+    expect(
+      queryByText("Add personalised cards to your Top Trumps deck.")
+    ).toBeInTheDocument();
+    fireEvent.mouseOut(queryByText("Create Cards"));
+    expect(
+      queryByText("Add personalised cards to your Top Trumps deck.")
+    ).not.toBeInTheDocument();
   });
 });
