@@ -133,7 +133,7 @@ describe("Play component", () => {
     fireEvent.click(getByText(container, "Cool"));
     expect(container.textContent).toContain("wins!");
     expect(container.textContent).toContain("3 cards");
-    expect(container.textContent).toContain("1 cards");
+    expect(container.textContent).toContain("1 card");
   });
 
   test("compares fields, declares a tie and adjusts card arrays if values are equal", async () => {
@@ -146,7 +146,7 @@ describe("Play component", () => {
 
     fireEvent.click(getByText(container, "Largeness"));
     expect(container.textContent).toContain("Tie!");
-    expect(container.textContent).toContain("1 cards");
+    expect(container.textContent).toContain("1 card");
   });
 
   test("declares a winner if one card array is empty", async () => {
