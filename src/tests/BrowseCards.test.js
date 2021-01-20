@@ -9,6 +9,8 @@ import {
   getByText,
   findByText,
   getByRole,
+  getAllByRole,
+  queryByText,
 } from "@testing-library/react";
 
 const renderContainer = () => {
@@ -134,7 +136,20 @@ describe("BrowseCards component", () => {
     );
   });
 
-  test("renders an alert on 'delete all cards' press", async () => {
+  test("renders a home link", async () => {
+    var mock = new MockAdapter(axios);
+    mock.onGet("http://localhost:3000/cards").reply(200, fakeResponse);
+
+    await act(async () => {
+      renderContainer();
+    });
+
+    const link = getByRole(container, "link");
+    expect(link.getAttribute("href")).toBe("/");
+    expect(container.textContent).toContain("← BACK");
+  });
+
+  test("renders a confirmation alert on 'delete all cards' press", async () => {
     var mock = new MockAdapter(axios);
     mock.onGet("http://localhost:3000/cards").reply(200, fakeResponse);
     mock.onDelete("http://localhost:3000/cards").reply(200);
@@ -148,7 +163,7 @@ describe("BrowseCards component", () => {
     expect(container.textContent).toContain("Are you sure?");
   });
 
-  test("renders a home link", async () => {
+  test("cancels delete all cards function on cancel press", async () => {
     var mock = new MockAdapter(axios);
     mock.onGet("http://localhost:3000/cards").reply(200, fakeResponse);
     mock.onDelete("http://localhost:3000/cards").reply(200);
@@ -157,8 +172,76 @@ describe("BrowseCards component", () => {
       renderContainer();
     });
 
-    const link = getByRole(container, "link");
-    expect(link.getAttribute("href")).toBe("/");
-    expect(container.textContent).toContain("← BACK");
+    fireEvent.click(getByText(container, "DELETE ALL CARDS"));
+    fireEvent.click(getByText(container, "CANCEL"));
+    expect(queryByText(container, "Are you sure?")).not.toBeInTheDocument();
+  });
+
+  test("renders a success message on delete all cards", async () => {
+    var mock = new MockAdapter(axios);
+    mock.onGet("http://localhost:3000/cards").reply(200, fakeResponse);
+    mock.onDelete("http://localhost:3000/cards").reply(200);
+
+    await act(async () => {
+      renderContainer();
+    });
+
+    fireEvent.click(getByText(container, "DELETE ALL CARDS"));
+    await act(async () => {
+      fireEvent.click(getByText(container, "DELETE"));
+    });
+    expect(getByText(container, "Success")).toBeInTheDocument();
+  });
+
+  test("renders an error message on delete all cards", async () => {
+    var mock = new MockAdapter(axios);
+    mock.onGet("http://localhost:3000/cards").reply(200, fakeResponse);
+    mock.onDelete("http://localhost:3000/cards").reply(404);
+
+    await act(async () => {
+      renderContainer();
+    });
+
+    fireEvent.click(getByText(container, "DELETE ALL CARDS"));
+    await act(async () => {
+      fireEvent.click(getByText(container, "DELETE"));
+    });
+    expect(getByText(container, "Error")).toBeInTheDocument();
+  });
+
+  test("renders a success message on card delete", async () => {
+    var mock = new MockAdapter(axios);
+    mock.onGet("http://localhost:3000/cards").reply(200, fakeResponse);
+    mock.onDelete("http://localhost:3000/cards/1").reply(200);
+
+    await act(async () => {
+      renderContainer();
+    });
+
+    fireEvent.change(document.getElementById("selectCards"), {
+      target: { value: "Cat" },
+    });
+    await act(async () => {
+      fireEvent.click(getByText(container, "DELETE"));
+    });
+    expect(getByText(container, "Success")).toBeInTheDocument();
+  });
+
+  test("renders an error message on card delete", async () => {
+    var mock = new MockAdapter(axios);
+    mock.onGet("http://localhost:3000/cards").reply(200, fakeResponse);
+    mock.onDelete("http://localhost:3000/cards/1").reply(400);
+
+    await act(async () => {
+      renderContainer();
+    });
+
+    fireEvent.change(document.getElementById("selectCards"), {
+      target: { value: "Cat" },
+    });
+    await act(async () => {
+      fireEvent.click(getByText(container, "DELETE"));
+    });
+    expect(getByText(container, "Error")).toBeInTheDocument();
   });
 });
