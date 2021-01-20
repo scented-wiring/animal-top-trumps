@@ -2,6 +2,11 @@
 
 This app allows you to create personalised animal Top Trump cards and battle against a computer opponent using your deck.
 
+# Screenshots
+
+![Desktop screenshot](https://github.com/scented-wiring/animal-toptrumps/blob/master/screenshots/screenshot1.png) ![Desktop screenshot](https://github.com/scented-wiring/animal-toptrumps/blob/master/screenshots/screenshot2.png)
+![Desktop screenshot](https://github.com/scented-wiring/animal-toptrumps/blob/master/screenshots/screenshot3.png) ![Desktop screenshot](https://github.com/scented-wiring/animal-toptrumps/blob/master/screenshots/screenshot4.png)
+
 ## Instructions
 
 Follow the instructions in the [animal-toptrumps-api](https://github.com/scented-wiring/animal-toptrumps-api) to create an API to store your data.
