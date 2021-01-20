@@ -128,4 +128,33 @@ describe("Create Cards component", () => {
       getByText(container, "Could not connect to the server.")
     ).toBeInTheDocument();
   });
+
+  test("renders an error message if card field total is over 25", async () => {
+    var mock = new MockAdapter(axios);
+    mock.onPost("http://localhost:3000/cards").reply(200);
+
+    await act(async () => {
+      renderContainer();
+    });
+
+    fireEvent.change(document.getElementsByClassName("selectNumber")[0], {
+      target: { value: 10 },
+    });
+    fireEvent.change(document.getElementsByClassName("selectNumber")[1], {
+      target: { value: 10 },
+    });
+    fireEvent.change(document.getElementsByClassName("selectNumber")[2], {
+      target: { value: 10 },
+    });
+    await act(async () => {
+      fireEvent.click(getAllByRole(container, "button")[0]);
+    });
+
+    expect(
+      getByText(
+        container,
+        "Your card is too powerful! The maximum total for the numerical parameters is 25."
+      )
+    ).toBeInTheDocument();
+  });
 });
