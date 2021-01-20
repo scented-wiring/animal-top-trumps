@@ -79,3 +79,38 @@ h3:hover {
   transition: all 0.4s ease 0s;
   color: white;
 }
+
+@media only screen and (max-width: 500px) {
+  h1 {
+    font-size: 40px;
+  }
+
+  #logo {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  h1 {
+    font-size: 30px;
+  }
+
+  #logo {
+    width: 35px;
+    height: 35px;
+    padding: 6px;
+  }
+}
+
+@media only screen and (max-width: 330px) {
+  #logo {
+    width: 18px;
+    height: 18px;
+    padding: 5px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+}

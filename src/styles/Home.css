@@ -29,6 +29,7 @@
 
 .description {
   margin: 8px auto 0 auto;
+  padding: 0 10px 0 10px;
   font-size: 25px;
   text-align: center;
   height: 50px;
@@ -47,4 +48,111 @@ footer {
 
 #twitter {
   margin-left: 6px;
+}
+
+@media only screen and (max-width: 900px) {
+  .buttons button {
+    width: 140px;
+    font-size: 20px;
+    box-shadow: 7px 7px #004742;
+  }
+
+  .description {
+    font-size: 18px;
+  }
+
+  footer {
+    font-size: 12px;
+  }
+
+  #twitter {
+    height: 20px;
+    width: 20px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #pokerdogs {
+    width: 400px;
+  }
+
+  .buttons button {
+    width: 120px;
+    font-size: 20px;
+    box-shadow: 5px 5px #004742;
+    margin: 20px 20px 20px 15px;
+  }
+
+  .description {
+    font-size: 17px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  #pokerdogs {
+    width: 400px;
+  }
+
+  .buttons button {
+    width: 100px;
+    font-size: 18px;
+    box-shadow: 5px 5px #004742;
+    margin: 20px 20px 20px 15px;
+  }
+
+  .description {
+    font-size: 15px;
+    margin-top: 3px;
+  }
+
+  #twitter {
+    height: 15px;
+    width: 15px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  #pokerdogs {
+    width: 300px;
+  }
+
+  .buttons button {
+    height: 40px;
+    width: 80px;
+    font-size: 12px;
+    box-shadow: 3px 3px #004742;
+    margin: 15px 15px 15px 15px;
+  }
+
+  .description {
+    font-size: 13px;
+    height: 40px;
+  }
+
+  footer {
+    font-size: 9px;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  #pokerdogs {
+    width: 250px;
+  }
+
+  .buttons button {
+    height: 40px;
+    width: 60px;
+    font-size: 10px;
+    box-shadow: 3px 3px #004742;
+    margin: 15px 15px 15px 15px;
+  }
+
+  .description {
+    font-size: 10px;
+    height: 30px;
+  }
+
+  footer {
+    font-size: 9px;
+  }
 }
