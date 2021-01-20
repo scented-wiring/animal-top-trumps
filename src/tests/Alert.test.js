@@ -58,6 +58,28 @@ describe("Alert component", () => {
     expect(clearAlert).toHaveBeenCalled();
   });
 
+  test("alert clears on BACK press", () => {
+    const clearAlert = jest.fn();
+    const { getByText } = render(
+      <BrowserRouter>
+        <Alert alertType="Are you sure?" message="test" setAlert={clearAlert} />
+      </BrowserRouter>
+    );
+    fireEvent.click(getByText("CANCEL"));
+    expect(clearAlert).toHaveBeenCalled();
+  });
+
+  test("alert clears on CANCEL press", () => {
+    const clearAlert = jest.fn();
+    const { getByText } = render(
+      <BrowserRouter>
+        <Alert alertType="Error" message="test" setAlert={clearAlert} />
+      </BrowserRouter>
+    );
+    fireEvent.click(getByText("BACK"));
+    expect(clearAlert).toHaveBeenCalled();
+  });
+
   test("deletes all cards on confirmation press", () => {
     const deleteCards = jest.fn();
     const { getByText } = render(
