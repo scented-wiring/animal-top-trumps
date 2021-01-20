@@ -9,6 +9,7 @@ describe("Home component", () => {
         <Home />
       </BrowserRouter>
     );
+
     expect(asFragment).toMatchSnapshot();
   });
 
@@ -18,6 +19,7 @@ describe("Home component", () => {
         <Home />
       </BrowserRouter>
     );
+
     expect(getAllByRole("img")).toHaveLength(2);
   });
 
@@ -27,6 +29,7 @@ describe("Home component", () => {
         <Home />
       </BrowserRouter>
     );
+
     expect(getAllByRole("button")).toHaveLength(3);
   });
 
@@ -36,6 +39,7 @@ describe("Home component", () => {
         <Home />
       </BrowserRouter>
     );
+
     expect(getAllByRole("link")).toHaveLength(4);
   });
 
@@ -45,6 +49,7 @@ describe("Home component", () => {
         <Home />
       </BrowserRouter>
     );
+
     expect(getByText("Created by Tom Hammersley 2021")).toBeInTheDocument();
   });
 
