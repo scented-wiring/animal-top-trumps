@@ -89,6 +89,12 @@ h3:hover {
     width: 40px;
     height: 40px;
   }
+
+  button {
+    font-size: 15px;
+    height: 30px;
+    width: 80px;
+  }
 }
 
 @media only screen and (max-width: 400px) {
@@ -96,10 +102,18 @@ h3:hover {
     font-size: 30px;
   }
 
+  h2 {
+    font-size: 25px;
+  }
+
   #logo {
     width: 35px;
     height: 35px;
     padding: 6px;
+  }
+
+  h3 {
+    font-size: 18px;
   }
 }
 
@@ -112,5 +126,15 @@ h3:hover {
 
   h1 {
     font-size: 22px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  button {
+    font-size: 12px;
+    height: 20px;
+    width: 70px;
   }
 }
