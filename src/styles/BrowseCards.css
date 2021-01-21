@@ -27,3 +27,53 @@
   width: 170px;
   margin-top: 25px;
 }
+
+@media only screen and (max-width: 625px) {
+  #selectCards {
+    font-size: 20px;
+    height: 400px;
+    width: 200px;
+    box-shadow: 8px 8px #004742;
+  }
+}
+
+@media only screen and (max-width: 540px) {
+  #selectCards {
+    margin-right: 20px;
+    font-size: 15px;
+    height: 350px;
+    width: 160px;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  #selectCards {
+    font-size: 12px;
+    height: 320px;
+    width: 130px;
+    box-shadow: 5px 5px #004742;
+  }
+
+  #delete {
+    width: 130px;
+  }
+}
+
+@media only screen and (max-width: 385px) {
+  #selectCards {
+    font-size: 11px;
+    width: 110px;
+  }
+}
+
+@media only screen and (max-width: 330px) {
+  #selectCards {
+    margin-right: 10px;
+    font-size: 10px;
+    width: 100px;
+  }
+
+  #delete {
+    width: 120px;
+  }
+}
