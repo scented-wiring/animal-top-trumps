@@ -1,4 +1,4 @@
-# Animal Top Trumps (A functioning work in progress)
+# Animal Top Trumps
 
 This app allows you to create personalised animal Top Trump cards and battle against a computer opponent using your deck.
 
@@ -15,7 +15,7 @@ and run `npm start` to start the app.
 
 ## To-do
 
-- Add styling for mobile devices
+- Add mobile device styling for play component
 
 ## Built with
 
