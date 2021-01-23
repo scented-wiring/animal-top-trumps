@@ -1,6 +1,4 @@
 .Card-border {
-  display: flex;
-  flex-direction: column;
   background: #007ecc;
   border: 1px solid black;
   border-radius: 30px;
@@ -11,6 +9,8 @@
 }
 
 .Card {
+  display: flex;
+  flex-direction: column;
   position: absolute;
   height: 440px;
   width: 300px;
@@ -24,28 +24,90 @@
   text-align: center;
   text-decoration: underline;
   font-size: 40px;
-  margin: 20px;
+  margin: 10px 20px 0 20px;
 }
 
-.other-stat {
-  font-family: "Montserrat", sans-serif;
-  margin: 20px;
+.aka {
+  text-align: center;
+  font-style: italic;
+  margin: 0 20px 2px 20px;
+  font-size: 20px;
+}
+
+.alignment {
+  text-align: center;
+  margin: 0 20px 0 20px;
+  font-size: 15px;
+}
+
+#card-logo-front {
+  align-self: center;
+  border: 3px solid black;
+  margin: 20px 0 20px 0;
+}
+
+.stat-line:first-child {
+  background: red;
+}
+
+.stat-name1 {
+  display: flex;
+  align-items: center;
+  height: 35px;
   font-size: 22px;
+  padding-left: 20px;
+  background: #00d7b0;
+  border: 2px solid black;
 }
 
-.delete {
+.stat1 {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 35px;
+  width: 60px;
+  background: #a2e893;
+  border-left: 2px solid black;
+}
+
+.stat-name2 {
+  display: flex;
+  align-items: center;
+  height: 35px;
+  font-size: 22px;
+  padding-left: 20px;
+  background: #a2e893;
+  border-left: 2px solid black;
+  border-right: 2px solid black;
+}
+
+.stat2 {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 35px;
+  width: 60px;
+  background: #00d7b0;
+  border-left: 2px solid black;
+}
+
+.footer {
+  font-size: 11px;
+  margin-top: 6px;
   text-align: center;
 }
 
 .hidden-card {
+  display: flex;
+  flex-direction: column;
   height: 420px;
   width: 280px;
   background: #007ecc;
   padding: 20px;
   border: 1px solid black;
   border-radius: 30px;
-  display: flex;
-  flex-direction: column;
   box-shadow: 10px 10px #004742;
 }
 
@@ -57,7 +119,7 @@
   align-items: center;
 }
 
-#card-logo {
+#card-logo-back {
   align-self: center;
   padding: 7px;
   border: 3px solid black;
@@ -71,6 +133,24 @@
   height: 460px;
   width: 300px;
   padding: 10px;
+}
+
+.cardload {
+  align-self: center;
+  text-align: center;
+  font-size: 30px;
+  height: 150px;
+  width: 200px;
+  margin: 20px 0 20px 0;
+}
+
+.photographer-link {
+  text-decoration: underline;
+}
+
+.delete {
+  align-self: center;
+  margin-bottom: 4px;
 }
 
 @media only screen and (max-width: 625px) {
