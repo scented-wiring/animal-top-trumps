@@ -138,7 +138,6 @@
 .cardload {
   align-self: center;
   text-align: center;
-  font-size: 30px;
   height: 150px;
   width: 200px;
   margin: 20px 0 20px 0;
@@ -146,6 +145,15 @@
 
 .photographer-link {
   text-decoration: underline;
+}
+
+.nophoto {
+  align-self: center;
+  text-align: center;
+  border: 3px solid black;
+  margin: 20px 0 20px 0;
+  color: white;
+  background: darkblue;
 }
 
 .delete {

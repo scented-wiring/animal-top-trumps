@@ -36,7 +36,8 @@ const Card = ({
         setLoad(false);
       })
       .catch(() => {
-        console.log("something went wrong!");
+        setPhoto(false);
+        console.log("whoops");
         setLoad(false);
       });
   }, [name]);
@@ -76,6 +77,24 @@ const Card = ({
           <div className="alignment">({alignment})</div>
           {load ? (
             <div className="cardload">Loading Photo...</div>
+          ) : !photo ? (
+            !deleteCard ? (
+              <div
+                className="nophoto"
+                style={{ width: "200px", height: "150px", fontSize: "20px" }}
+              >
+                <br />
+                No photos related to "{name}" found
+              </div>
+            ) : (
+              <div
+                className="nophoto"
+                style={{ width: "150px", height: "100px" }}
+              >
+                <br />
+                No photos related to "{name}" found
+              </div>
+            )
           ) : !deleteCard ? (
             <img
               id="card-logo-front"
@@ -108,26 +127,28 @@ const Card = ({
               <button onClick={() => deleteCard(id)}>DELETE</button>
             </div>
           )}
-          <div className="footer">
-            Photo by{" "}
-            <a
-              className="photographer-link"
-              href={`https://unsplash.com/@${photo.user.username}?utm_source=Animal Top Trumps&utm_medium=referral`}
-              target="_blank"
-              rel="noreferrer"
-            >
-              {photo.user.name}
-            </a>{" "}
-            on{" "}
-            <a
-              className="photographer-link"
-              href="https://unsplash.com/?utm_source=Animal Top Trumps&utm_medium=referral"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Unsplash
-            </a>
-          </div>
+          {photo && (
+            <div className="footer">
+              Photo by{" "}
+              <a
+                className="photographer-link"
+                href={`https://unsplash.com/@${photo.user.username}?utm_source=Animal Top Trumps&utm_medium=referral`}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {photo.user.name}
+              </a>{" "}
+              on{" "}
+              <a
+                className="photographer-link"
+                href="https://unsplash.com/?utm_source=Animal Top Trumps&utm_medium=referral"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Unsplash
+              </a>
+            </div>
+          )}
         </div>
       </div>
     );
