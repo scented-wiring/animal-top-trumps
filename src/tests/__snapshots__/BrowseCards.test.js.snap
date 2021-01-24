@@ -33,18 +33,25 @@ exports[`BrowseCards component renders correctly 1`] = `
           class="Card"
         >
           <div
-            class="other-stat"
+            class="default-message"
           >
             Choose a card from the left to view its stats.
           </div>
         </div>
       </div>
     </div>
-    <button
-      id="delete"
-    >
-      DELETE ALL CARDS
-    </button>
+    <div>
+      <button
+        id="delete"
+      >
+        DELETE CURRENT CARD
+      </button>
+      <button
+        id="delete"
+      >
+        DELETE ALL CARDS
+      </button>
+    </div>
     <a
       href="/"
     >

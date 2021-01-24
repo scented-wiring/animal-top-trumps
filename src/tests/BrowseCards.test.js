@@ -9,7 +9,6 @@ import {
   getByText,
   findByText,
   getByRole,
-  getAllByRole,
   queryByText,
 } from "@testing-library/react";
 
@@ -131,9 +130,7 @@ describe("BrowseCards component", () => {
       target: { value: "Cat" },
     });
 
-    expect(container.textContent).toContain(
-      'aka: "Furry demon" Alignment:Lawful Evil'
-    );
+    expect(container.textContent).toContain('"Furry demon"(Lawful Evil)');
   });
 
   test("renders a home link", async () => {
@@ -222,7 +219,7 @@ describe("BrowseCards component", () => {
       target: { value: "Cat" },
     });
     await act(async () => {
-      fireEvent.click(getByText(container, "DELETE"));
+      fireEvent.click(getByText(container, "DELETE CURRENT CARD"));
     });
     expect(getByText(container, "Success")).toBeInTheDocument();
   });
@@ -240,7 +237,7 @@ describe("BrowseCards component", () => {
       target: { value: "Cat" },
     });
     await act(async () => {
-      fireEvent.click(getByText(container, "DELETE"));
+      fireEvent.click(getByText(container, "DELETE CURRENT CARD"));
     });
     expect(getByText(container, "Error")).toBeInTheDocument();
   });

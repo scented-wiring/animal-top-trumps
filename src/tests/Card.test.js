@@ -21,9 +21,9 @@ describe("Card component", () => {
     expect(container).toMatchSnapshot();
   });
 
-  test('renders only the card name if aka is set to "default__card"', () => {
+  test("renders a message if defaultText is true", () => {
     render(
-      <Card name="test" alignment="do not render" aka="default__card" />,
+      <Card message="test" alignment="do not render" defaultText={true} />,
       container
     );
 
@@ -58,17 +58,8 @@ describe("Card component", () => {
     );
 
     expect(container.textContent).toContain(
-      'testCool: 5 Largeness: 5 Handsome: 5 aka: "test" Alignment:test'
+      'test"test"(test)Loading image...Cool: 5Largeness: 5Handsome: 5'
     );
-  });
-
-  test("renders a delete button if deleteCard prop is truthy", () => {
-    render(<Card deleteCard={true} />, container);
-
-    const button = getByRole(container, "button");
-
-    expect(button).toBeInTheDocument();
-    expect(button.textContent).toContain("DELETE");
   });
 
   test("doesn't render a delete button if deleteCard prop is falsy", () => {

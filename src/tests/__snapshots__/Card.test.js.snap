@@ -12,38 +12,45 @@ exports[`Card component renders correctly 1`] = `
         class="name"
       />
       <div
-        class="other-stat"
+        class="aka"
+      >
+        "
+        "
+      </div>
+      <div
+        class="alignment"
+      >
+        (
+        )
+      </div>
+      <div
+        class="loading"
+      >
+        Loading image...
+      </div>
+      <div
+        class="stat-name1"
       >
         Cool: 
-         
+        <div
+          class="stat1"
+        />
       </div>
       <div
-        class="other-stat"
+        class="stat-name2"
       >
         Largeness: 
-         
+        <div
+          class="stat2"
+        />
       </div>
       <div
-        class="other-stat"
+        class="stat-name1"
       >
         Handsome: 
-         
-      </div>
-      <div
-        class="other-stat"
-      >
-        aka: 
-        <br />
-        "
-        "
-         
-      </div>
-      <div
-        class="other-stat"
-      >
-        Alignment:
-        <br />
-         
+        <div
+          class="stat1"
+        />
       </div>
     </div>
   </div>
