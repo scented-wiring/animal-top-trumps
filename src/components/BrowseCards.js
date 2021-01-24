@@ -12,8 +12,8 @@ const BrowseCards = () => {
       alertType: "",
     },
     card: {
-      name: "Choose a card from the left to view its stats.",
-      aka: "default__card",
+      message: "Choose a card from the left to view its stats.",
+      defaultText: true,
     },
   };
 
@@ -99,25 +99,30 @@ const BrowseCards = () => {
           </select>
           {!cards.length ? (
             <Card
-              name={`No cards found! Go to "Create Cards" from the menu to add cards to your deck.`}
-              aka="default__card"
+              defaultText={true}
+              message={`No cards found! Go to "Create Cards" from the menu to add cards to your deck.`}
             />
           ) : (
             <Card {...card} deleteCard={handleDeleteCard} />
           )}
         </div>
         {cards.length > 0 && (
-          <button
-            id="delete"
-            onClick={() =>
-              setAlert({
-                message: "Deleting all cards cannot be undone.",
-                alertType: "Are you sure?",
-              })
-            }
-          >
-            DELETE ALL CARDS
-          </button>
+          <div>
+            <button id="delete" onClick={() => handleDeleteCard(card.id)}>
+              DELETE CURRENT CARD
+            </button>
+            <button
+              id="delete"
+              onClick={() =>
+                setAlert({
+                  message: "Deleting all cards cannot be undone.",
+                  alertType: "Are you sure?",
+                })
+              }
+            >
+              DELETE ALL CARDS
+            </button>
+          </div>
         )}
         <Alert
           setAlert={setAlert}

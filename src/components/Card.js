@@ -14,10 +14,10 @@ const Card = ({
   handsome,
   aka,
   alignment,
-  id,
-  deleteCard,
   hide,
   deckSize,
+  defaultText,
+  message,
 }) => {
   const [photo, setPhoto] = useState(null);
   const [load, setLoad] = useState(true);
@@ -37,16 +37,15 @@ const Card = ({
       })
       .catch(() => {
         setPhoto(false);
-        console.log("whoops");
         setLoad(false);
       });
   }, [name]);
 
-  if (aka === "default__card") {
+  if (defaultText) {
     return (
       <div className="Card-border">
         <div className="Card">
-          <div className="name">{name}</div>
+          <div className="default-message">{message}</div>
         </div>
       </div>
     );
@@ -55,12 +54,12 @@ const Card = ({
   } else if (hide) {
     return (
       <div className="hidden-card">
-        <div className="text">
+        <div id="card-back-text">
           Animal <br />
           Top Trumps
         </div>
         <img
-          id="card-logo-back"
+          id="card-back-logo"
           src={logo}
           alt="Logo"
           height="96px"
@@ -68,7 +67,7 @@ const Card = ({
         />
       </div>
     );
-  } else if (!load) {
+  } else {
     return (
       <div className="Card-border">
         <div className="Card">
@@ -76,40 +75,22 @@ const Card = ({
           <div className="aka">"{aka}"</div>
           <div className="alignment">({alignment})</div>
           {load ? (
-            <div className="cardload">Loading Photo...</div>
+            <div className="loading">Loading image...</div>
           ) : !photo ? (
-            !deleteCard ? (
-              <div
-                className="nophoto"
-                style={{ width: "200px", height: "150px", fontSize: "20px" }}
-              >
-                <br />
-                No photos related to "{name}" found
-              </div>
-            ) : (
-              <div
-                className="nophoto"
-                style={{ width: "150px", height: "100px" }}
-              >
-                <br />
-                No photos related to "{name}" found
-              </div>
-            )
-          ) : !deleteCard ? (
+            <div
+              id="nophoto"
+              style={{ width: "200px", height: "150px", fontSize: "20px" }}
+            >
+              <br />
+              No photo results for "{name}" found
+            </div>
+          ) : (
             <img
-              id="card-logo-front"
+              id="photo"
               src={photo.urls.small}
               alt="Logo"
               height="150px"
               width="200px"
-            />
-          ) : (
-            <img
-              id="card-logo-front"
-              src={photo.urls.small}
-              alt="Logo"
-              height="100px"
-              width="150px"
             />
           )}
           <div className="stat-name1">
@@ -121,12 +102,6 @@ const Card = ({
           <div className="stat-name1">
             Handsome: <div className="stat1">{handsome}</div>
           </div>
-
-          {deleteCard && (
-            <div className="delete">
-              <button onClick={() => deleteCard(id)}>DELETE</button>
-            </div>
-          )}
           {photo && (
             <div className="footer">
               Photo by{" "}
@@ -150,12 +125,6 @@ const Card = ({
             </div>
           )}
         </div>
-      </div>
-    );
-  } else {
-    return (
-      <div className="Card-border">
-        <div className="Card"></div>
       </div>
     );
   }
