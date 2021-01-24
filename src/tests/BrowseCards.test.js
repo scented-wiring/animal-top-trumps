@@ -126,8 +126,10 @@ describe("BrowseCards component", () => {
       renderContainer();
     });
 
-    fireEvent.change(document.getElementById("selectCards"), {
-      target: { value: "Cat" },
+    await act(async () => {
+      fireEvent.change(document.getElementById("selectCards"), {
+        target: { value: "Cat" },
+      });
     });
 
     expect(container.textContent).toContain('"Furry demon"(Lawful Evil)');
@@ -215,11 +217,16 @@ describe("BrowseCards component", () => {
       renderContainer();
     });
 
-    fireEvent.change(document.getElementById("selectCards"), {
-      target: { value: "Cat" },
+    await act(async () => {
+      fireEvent.change(document.getElementById("selectCards"), {
+        target: { value: "Cat" },
+      });
     });
     await act(async () => {
       fireEvent.click(getByText(container, "DELETE CURRENT CARD"));
+    });
+    await act(async () => {
+      fireEvent.click(getByText(container, "DELETE"));
     });
     expect(getByText(container, "Success")).toBeInTheDocument();
   });
@@ -227,17 +234,22 @@ describe("BrowseCards component", () => {
   test("renders an error message on card delete", async () => {
     var mock = new MockAdapter(axios);
     mock.onGet("http://localhost:3000/cards").reply(200, fakeResponse);
-    mock.onDelete("http://localhost:3000/cards/1").reply(400);
+    mock.onDelete("http://localhost:3000/cards/1").reply(404);
 
     await act(async () => {
       renderContainer();
     });
 
-    fireEvent.change(document.getElementById("selectCards"), {
-      target: { value: "Cat" },
+    await act(async () => {
+      fireEvent.change(document.getElementById("selectCards"), {
+        target: { value: "Cat" },
+      });
     });
     await act(async () => {
       fireEvent.click(getByText(container, "DELETE CURRENT CARD"));
+    });
+    await act(async () => {
+      fireEvent.click(getByText(container, "DELETE"));
     });
     expect(getByText(container, "Error")).toBeInTheDocument();
   });

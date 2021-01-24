@@ -23,6 +23,7 @@ const Card = ({
   const [load, setLoad] = useState(true);
 
   useEffect(() => {
+    let isCancelled = false;
     setLoad(true);
     api.search
       .getPhotos({
@@ -32,13 +33,20 @@ const Card = ({
         perPage: 1,
       })
       .then((result) => {
-        setPhoto(result.response.results[0]);
-        setLoad(false);
+        if (!isCancelled) {
+          setPhoto(result.response.results[0]);
+          setLoad(false);
+        }
       })
       .catch(() => {
-        setPhoto(false);
-        setLoad(false);
+        if (!isCancelled) {
+          setPhoto(false);
+          setLoad(false);
+        }
       });
+    return () => {
+      isCancelled = true;
+    };
   }, [name]);
 
   if (defaultText) {

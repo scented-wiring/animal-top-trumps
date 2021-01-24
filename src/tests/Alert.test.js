@@ -86,7 +86,7 @@ describe("Alert component", () => {
       <BrowserRouter>
         <Alert
           alertType="Are you sure?"
-          message="test"
+          message="Delete all cards? This cannot be undone."
           deleteAllCards={deleteCards}
         />
       </BrowserRouter>
