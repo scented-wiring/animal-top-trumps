@@ -1,7 +1,14 @@
 import "../styles/Alert.css";
 import { Link } from "react-router-dom";
 
-const Alert = ({ setAlert, message, alertType, deleteAllCards }) => {
+const Alert = ({
+  setAlert,
+  message,
+  alertType,
+  deleteAllCards,
+  deleteCard,
+  id,
+}) => {
   const clearAlert = () => {
     setAlert({
       message: "",
@@ -25,9 +32,15 @@ const Alert = ({ setAlert, message, alertType, deleteAllCards }) => {
         <button className="clearAlert" onClick={() => clearAlert()}>
           CANCEL
         </button>
-        <button className="clearAlert" onClick={() => deleteAllCards()}>
-          DELETE
-        </button>
+        {message === "Delete all cards? This cannot be undone." ? (
+          <button className="clearAlert" onClick={() => deleteAllCards()}>
+            DELETE
+          </button>
+        ) : (
+          <button className="clearAlert" onClick={() => deleteCard(id)}>
+            DELETE
+          </button>
+        )}
       </div>
     );
   } else {

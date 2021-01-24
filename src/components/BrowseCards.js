@@ -108,14 +108,22 @@ const BrowseCards = () => {
         </div>
         {cards.length > 0 && (
           <div>
-            <button id="delete" onClick={() => handleDeleteCard(card.id)}>
+            <button
+              id="delete"
+              onClick={() =>
+                setAlert({
+                  message: `Delete ${card.name}? This action cannot be undone.`,
+                  alertType: "Are you sure?",
+                })
+              }
+            >
               DELETE CURRENT CARD
             </button>
             <button
               id="delete"
               onClick={() =>
                 setAlert({
-                  message: "Deleting all cards cannot be undone.",
+                  message: "Delete all cards? This cannot be undone.",
                   alertType: "Are you sure?",
                 })
               }
@@ -128,6 +136,8 @@ const BrowseCards = () => {
           setAlert={setAlert}
           message={alert.message}
           alertType={alert.alertType}
+          id={card.id}
+          deleteCard={handleDeleteCard}
           deleteAllCards={handleDeleteAllCards}
         />
         <Link to="/">
