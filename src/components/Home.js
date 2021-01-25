@@ -43,6 +43,15 @@ const Home = () => {
             Create Cards
           </button>
         </Link>
+        <Link to="/instructions">
+          <button
+            type="button"
+            onMouseOver={() => setHover("instructions")}
+            onMouseOut={() => setHover("")}
+          >
+            Instructions
+          </button>
+        </Link>
       </div>
       <div className="description">
         {hover === "play" &&
@@ -51,6 +60,7 @@ const Home = () => {
           "View the stats of (or delete) cards from your Top Trumps deck."}
         {hover === "create" &&
           "Add personalised cards to your Top Trumps deck."}
+        {hover === "instructions" && "How the game and card creation works."}
       </div>
       <footer>
         Created by Tom Hammersley 2021{" "}

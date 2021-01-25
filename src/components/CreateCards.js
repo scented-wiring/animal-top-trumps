@@ -176,7 +176,7 @@ const CreateCards = () => {
           Note: "aka" and "alignment" are just for fun and do not have any
           bearing on the gameplay.
         </div>
-        <button type="submit">Add Card</button>
+        <button type="submit">Create Card</button>
       </form>
       <div className="starter-deck">
         <div className="starter-text">
