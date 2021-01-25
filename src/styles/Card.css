@@ -111,11 +111,12 @@
 }
 
 .loading {
-  align-self: center;
   text-align: center;
-  height: 150px;
+  padding: 60px 0;
+  border: 3px solid black;
+  height: 30px;
   width: 200px;
-  margin: 20px auto 26px auto;
+  margin: 20px auto 20px auto;
   font-size: 20px;
 }
 
