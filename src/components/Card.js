@@ -2,9 +2,10 @@ import "../styles/Card.css";
 import { useEffect, useState } from "react";
 import { createApi } from "unsplash-js";
 import logo from "../dog.png";
+import key from "../accessKey";
 
 const api = createApi({
-  accessKey: "jsioAkwwM5Hg_da8KPqPHaVc67Y-HkofLqQY7NEbOL0",
+  accessKey: key,
 });
 
 const Card = ({
