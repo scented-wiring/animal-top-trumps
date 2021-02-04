@@ -34,13 +34,13 @@ const Instructions = () => {
 
   const createText = (
     <p id="instructions-text">
-      First, decide which animal you would like to create a card for, then enter
+      First, decide which animal you would like to create a card for then enter
       the name of the species in the "name" field. This name will be used as a
       query to search the Unsplash photo database and set an image for your
       animal (so keep in mind that you may not get a corresponding image if your
       chosen animal species name is mispelled or very obscure).
       <br /> <br />
-      Next, select values for your animal between 1 to 10 for the fields cool,
+      Next, select values for your animal between 1 to 10 for the cool,
       largeness and handsome fields. These values determine the winner of each
       round so higher is better. However, the total value of these fields cannot
       exceed 25 (because that would be cheating and nobody's perfect).

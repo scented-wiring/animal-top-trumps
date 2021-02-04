@@ -1,12 +1,10 @@
 import "../styles/Home.css";
-import { useState } from "react";
+
 import { Link } from "react-router-dom";
 import pokerdogs from "../pokerdogs.png";
 import twitter from "../twitter.png";
 
 const Home = () => {
-  const [hover, setHover] = useState("");
-
   return (
     <div className="home">
       <img
@@ -17,50 +15,17 @@ const Home = () => {
       />
       <div className="buttons">
         <Link to="/play">
-          <button
-            type="button"
-            onMouseOver={() => setHover("play")}
-            onMouseOut={() => setHover("")}
-          >
-            Play
-          </button>
+          <button type="button">Play</button>
         </Link>
         <Link to="/browsecards">
-          <button
-            type="button"
-            onMouseOver={() => setHover("browse")}
-            onMouseOut={() => setHover("")}
-          >
-            Browse Cards
-          </button>
+          <button type="button">Browse Cards</button>
         </Link>
         <Link to="/createcards">
-          <button
-            type="button"
-            onMouseOver={() => setHover("create")}
-            onMouseOut={() => setHover("")}
-          >
-            Create Cards
-          </button>
+          <button type="button">Create Cards</button>
         </Link>
         <Link to="/instructions">
-          <button
-            type="button"
-            onMouseOver={() => setHover("instructions")}
-            onMouseOut={() => setHover("")}
-          >
-            Instructions
-          </button>
+          <button type="button">Instructions</button>
         </Link>
-      </div>
-      <div className="description">
-        {hover === "play" &&
-          "Battle against a highly skilled computer using your Top Trumps deck."}
-        {hover === "browse" &&
-          "View the stats of (or delete) cards from your Top Trumps deck."}
-        {hover === "create" &&
-          "Add personalised cards to your Top Trumps deck."}
-        {hover === "instructions" && "How the game and card creation works."}
       </div>
       <footer>
         Created by Tom Hammersley 2021{" "}
