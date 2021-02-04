@@ -53,70 +53,36 @@ select {
   font-size: 15px;
 }
 
-@media only screen and (max-width: 600px) {
-  .createCardsForm {
-    height: 370px;
-    width: 280px;
-  }
-
-  label {
-    font-size: 16px;
-  }
-
-  input,
-  select {
-    font-size: 12px;
-  }
-
-  .note {
-    font-size: 12px;
-  }
-
+@media only screen and (max-width: 400px) {
   .starter-text {
-    font-size: 18px;
+    font-size: 15px;
   }
 }
 
-@media only screen and (max-width: 445px) {
+@media only screen and (max-width: 370px) {
   .createCardsForm {
     width: 200px;
-    height: 380px;
-  }
-
-  label {
-    font-size: 15px;
   }
 
   .note {
-    font-size: 10px;
-  }
-
-  .starter-text {
-    font-size: 15px;
-  }
-
-  input,
-  select {
-    font-size: 12px;
-  }
-}
-
-@media only screen and (max-width: 330px) {
-  .createCardsForm {
-    width: 180px;
-    height: 310px;
-  }
-
-  input,
-  select {
-    font-size: 10px;
-  }
-
-  label {
     font-size: 13px;
   }
 
   .starter-text {
-    font-size: 12px;
+    margin-bottom: 10px;
+  }
+
+  .starter-deck {
+    flex-direction: column;
+  }
+
+  label {
+    font-size: 15px;
+  }
+}
+
+@media only screen and (max-width: 285px) {
+  .createCardsForm {
+    width: 160px;
   }
 }
