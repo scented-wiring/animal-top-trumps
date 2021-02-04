@@ -5,6 +5,11 @@
   align-items: center;
 }
 
+.instructions-title {
+  font-size: 30px;
+  text-align: center;
+}
+
 #instructions-links {
   display: flex;
 }
@@ -19,6 +24,7 @@
 }
 
 #instructions-text {
+  margin-top: 20px;
   width: 800px;
   height: 420px;
   font-size: 20px;
@@ -38,6 +44,10 @@
   #instructions-text {
     width: 500px;
     font-size: 15px;
+  }
+
+  .instructions-title {
+    font-size: 25px;
   }
 }
 
@@ -64,5 +74,9 @@
   #instructions-text {
     width: 190px;
     font-size: 13px;
+  }
+
+  .instructions-title {
+    font-size: 20px;
   }
 }
