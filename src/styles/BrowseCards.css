@@ -23,6 +23,10 @@
   outline: 0;
 }
 
+#selectCards-drop {
+  display: none;
+}
+
 #delete {
   width: 170px;
   margin: 25px 10px 0 10px;
@@ -37,43 +41,28 @@
   }
 }
 
-@media only screen and (max-width: 540px) {
+@media only screen and (max-width: 525px) {
+  .display {
+    flex-direction: column;
+  }
+
   #selectCards {
-    margin-right: 20px;
-    font-size: 15px;
-    height: 350px;
-    width: 160px;
+    display: none;
+  }
+
+  #selectCards-drop {
+    display: inline;
+    margin-bottom: 15px;
+  }
+
+  #selectCards-drop:focus {
+    outline: none;
   }
 }
 
-@media only screen and (max-width: 450px) {
-  #selectCards {
-    font-size: 12px;
-    height: 320px;
-    width: 130px;
-    box-shadow: 5px 5px #004742;
-  }
-
-  #delete {
-    width: 130px;
-  }
-}
-
-@media only screen and (max-width: 385px) {
-  #selectCards {
-    font-size: 11px;
-    width: 110px;
-  }
-}
-
-@media only screen and (max-width: 330px) {
-  #selectCards {
-    margin-right: 10px;
-    font-size: 10px;
-    width: 100px;
-  }
-
-  #delete {
-    width: 120px;
+@media only screen and (max-width: 380px) {
+  #browse-buttons {
+    display: flex;
+    flex-direction: column;
   }
 }

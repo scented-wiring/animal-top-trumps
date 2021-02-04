@@ -84,6 +84,19 @@ const BrowseCards = () => {
         <h2>Browse Cards</h2>
         <div className="display">
           <select
+            name="selectCards-drop"
+            id="selectCards-drop"
+            onChange={(e) =>
+              setCard(
+                cards[document.getElementById("selectCards-drop").selectedIndex]
+              )
+            }
+          >
+            {cards.map((card) => (
+              <option key={cards.indexOf(card)}>{card.name}</option>
+            ))}
+          </select>
+          <select
             name="selectCards"
             id="selectCards"
             size="15"
@@ -107,7 +120,7 @@ const BrowseCards = () => {
           )}
         </div>
         {cards.length > 0 && (
-          <div>
+          <div id="browse-buttons">
             <button
               id="delete"
               onClick={() =>

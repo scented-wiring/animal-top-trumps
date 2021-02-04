@@ -65,13 +65,13 @@ const Instructions = () => {
       <div id="instructions-links">
         <h2
           onClick={() => setDisplay("play")}
-          id={display === "play" && "link-active"}
+          id={display === "play" ? "link-active" : "link-inactive"}
         >
           How to Play
         </h2>
         <h2
           onClick={() => setDisplay("create")}
-          id={display === "create" && "link-active"}
+          id={display === "create" ? "link-active" : "link-inactive"}
         >
           Creating Cards
         </h2>
