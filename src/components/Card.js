@@ -105,13 +105,13 @@ const Card = ({
             />
           )}
           <div className="stat-name1">
-            Cool: <div className="stat1">{cool}</div>
+            Cool <div className="stat1">{cool}</div>
           </div>
           <div className="stat-name2">
-            Largeness: <div className="stat2">{largeness}</div>
+            Largeness <div className="stat2">{largeness}</div>
           </div>
           <div className="stat-name1">
-            Handsome: <div className="stat1">{handsome}</div>
+            Handsome <div className="stat1">{handsome}</div>
           </div>
           {photo && (
             <div className="footer">

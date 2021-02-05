@@ -231,6 +231,28 @@ const Play = () => {
     );
   };
 
+  const arrangeDisplay = () => {
+    if (width > 800) {
+      return (
+        <div className="game">
+          {renderPlayerDeck()}
+          {renderGameUI()}
+          {renderComputerDeck()}
+        </div>
+      );
+    } else {
+      return (
+        <div className="game">
+          <div className="mobile-cards">
+            {renderPlayerDeck()}
+            {renderComputerDeck()}
+          </div>
+          {renderGameUI()}
+        </div>
+      );
+    }
+  };
+
   if (!load) {
     return (
       <div className="Play">
@@ -239,19 +261,7 @@ const Play = () => {
           message={alert.message}
           alertType={alert.alertType}
         />
-        {width > 1380 ? (
-          <div className="game-large">
-            {renderPlayerDeck()}
-            {renderGameUI()}
-            {renderComputerDeck()}
-          </div>
-        ) : (
-          <div className="game-small">
-            {renderPlayerDeck()}
-            {renderComputerDeck()}
-            {renderGameUI()}
-          </div>
-        )}
+        {arrangeDisplay()}
         <Link to="/">
           <h3>&larr; BACK</h3>
         </Link>

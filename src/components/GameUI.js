@@ -76,7 +76,7 @@ const GameUI = ({
         </button>
       )}
       {playerTurn && !noCards && !win && !gameWinner && (
-        <div>
+        <div id="fields">
           <div className="field" onClick={() => playField("cool")}>
             Cool
           </div>
