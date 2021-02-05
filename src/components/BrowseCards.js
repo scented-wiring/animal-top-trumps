@@ -12,7 +12,7 @@ const BrowseCards = () => {
       alertType: "",
     },
     card: {
-      message: "Choose a card from the left to view its stats.",
+      message: "Choose a card to view its stats.",
       defaultText: true,
     },
   };

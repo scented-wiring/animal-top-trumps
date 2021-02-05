@@ -26,29 +26,31 @@ const Card = ({
   useEffect(() => {
     let isCancelled = false;
     setLoad(true);
-    api.search
-      .getPhotos({
-        query: name,
-        orientation: "landscape",
-        page: 1,
-        perPage: 1,
-      })
-      .then((result) => {
-        if (!isCancelled) {
-          setPhoto(result.response.results[0]);
-          setLoad(false);
-        }
-      })
-      .catch(() => {
-        if (!isCancelled) {
-          setPhoto(false);
-          setLoad(false);
-        }
-      });
+    if (!defaultText) {
+      api.search
+        .getPhotos({
+          query: name,
+          orientation: "landscape",
+          page: 1,
+          perPage: 1,
+        })
+        .then((result) => {
+          if (!isCancelled) {
+            setPhoto(result.response.results[0]);
+            setLoad(false);
+          }
+        })
+        .catch(() => {
+          if (!isCancelled) {
+            setPhoto(false);
+            setLoad(false);
+          }
+        });
+    }
     return () => {
       isCancelled = true;
     };
-  }, [name]);
+  }, [name, defaultText]);
 
   if (defaultText) {
     return (
