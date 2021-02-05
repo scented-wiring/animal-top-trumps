@@ -14,6 +14,8 @@ const Play = () => {
     },
   };
 
+  const [width, setWidth] = useState(window.innerWidth);
+
   const [playerCards, setPlayerCards] = useState([]);
   const [playerCard, setPlayerCard] = useState({});
   const [computerCards, setComputerCards] = useState([]);
@@ -170,6 +172,65 @@ const Play = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  useEffect(() => {
+    const handleResize = () => {
+      setWidth(window.innerWidth);
+    };
+    window.addEventListener("resize", handleResize);
+    return (_) => {
+      window.removeEventListener("resize", handleResize);
+    };
+  });
+
+  const renderPlayerDeck = () => {
+    return (
+      <div className="player">
+        <div className={playerTurn ? "score-active" : "score"}>
+          Player: {playerCards.length}{" "}
+          {playerCards.length === 1 ? `card` : `cards`}
+        </div>
+        {showWonCard === "Player" ? (
+          <Card {...playerCards.find((card) => card.name === lostCard)} /> // Displays the card that the player has won
+        ) : (
+          <Card {...playerCard} deckSize={playerCards.length} />
+        )}
+      </div>
+    );
+  };
+
+  const renderComputerDeck = () => {
+    return (
+      <div className="computer">
+        <div className={!playerTurn ? "score-active" : "score"}>
+          Computer: {computerCards.length}{" "}
+          {computerCards.length === 1 ? `card` : `cards`}
+        </div>
+        {showWonCard === "Computer" ? (
+          <Card {...computerCards.find((card) => card.name === lostCard)} /> // Displays the card that the player has won
+        ) : (
+          <Card {...computerCard} deckSize={computerCards.length} hide={true} />
+        )}
+      </div>
+    );
+  };
+
+  const renderGameUI = () => {
+    return (
+      <GameUI
+        playerTurn={playerTurn}
+        playField={handlePlayField}
+        win={win}
+        lostCard={lostCard}
+        clearWin={handleClearWin}
+        cardHighField={cardHighField}
+        gameWinner={gameWinner}
+        tieCards={tieCards}
+        tieCardsLength={tieCards.length}
+        noCards={noCards}
+      />
+    );
+  };
+
   if (!load) {
     return (
       <div className="Play">
@@ -178,49 +239,19 @@ const Play = () => {
           message={alert.message}
           alertType={alert.alertType}
         />
-        <div className="game-area">
-          <div className="player">
-            <div className={playerTurn ? "score-active" : "score"}>
-              Player: {playerCards.length}{" "}
-              {playerCards.length === 1 ? `card` : `cards`}
-            </div>
-            {showWonCard === "Player" ? (
-              <Card {...playerCards.find((card) => card.name === lostCard)} /> // Displays the card that the player has won
-            ) : (
-              <Card {...playerCard} deckSize={playerCards.length} />
-            )}
+        {width > 1380 ? (
+          <div className="game-large">
+            {renderPlayerDeck()}
+            {renderGameUI()}
+            {renderComputerDeck()}
           </div>
-
-          <GameUI
-            playerTurn={playerTurn}
-            playField={handlePlayField}
-            win={win}
-            lostCard={lostCard}
-            clearWin={handleClearWin}
-            cardHighField={cardHighField}
-            gameWinner={gameWinner}
-            tieCards={tieCards}
-            tieCardsLength={tieCards.length}
-            noCards={noCards}
-          />
-
-          <div className="computer">
-            <div className={!playerTurn ? "score-active" : "score"}>
-              Computer: {computerCards.length}{" "}
-              {computerCards.length === 1 ? `card` : `cards`}
-            </div>
-            {showWonCard === "Computer" ? (
-              <Card {...computerCards.find((card) => card.name === lostCard)} /> // Displays the card that the player has won
-            ) : (
-              <Card
-                {...computerCard}
-                deckSize={computerCards.length}
-                hide={true}
-              />
-            )}
+        ) : (
+          <div className="game-small">
+            {renderPlayerDeck()}
+            {renderComputerDeck()}
+            {renderGameUI()}
           </div>
-        </div>
-
+        )}
         <Link to="/">
           <h3>&larr; BACK</h3>
         </Link>
