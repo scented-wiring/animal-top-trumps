@@ -53,6 +53,9 @@
   #selectCards-drop {
     display: inline;
     margin-bottom: 15px;
+    font-family: "Montserrat", sans-serif;
+    border: 2px black solid;
+    box-shadow: 4px 4px #004742;
   }
 
   #selectCards-drop:focus {
