@@ -89,7 +89,28 @@
 }
 
 @media only screen and (max-width: 420px) {
+  .status {
+    font-size: 30px;
+    margin-bottom: 10px;
+  }
+
+  .tie {
+    margin-bottom: 10px;
+    font-size: 25px;
+    font-family: "Staatliches", sans-serif;
+  }
+
+  .message {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+
   .field {
     font-size: 25px;
+    margin: 0 5px 0 5px;
+  }
+
+  #fields {
+    margin-bottom: 0;
   }
 }

@@ -224,3 +224,56 @@
     width: 80px;
   }
 }
+
+@media only screen and (max-width: 420px) {
+  .Card,
+  .Card-border {
+    height: 268px;
+    width: 175px;
+  }
+
+  .name {
+    font-size: 25px;
+    margin-top: 5px;
+  }
+
+  .aka {
+    font-size: 14px;
+  }
+
+  .alignment {
+    font-size: 11px;
+  }
+
+  #photo {
+    margin: 5px auto 5px auto;
+    height: 90px;
+    width: 120px;
+  }
+
+  .stat-name1,
+  .stat-name2 {
+    padding-left: 8px;
+    height: 20px;
+    font-size: 15px;
+  }
+
+  .stat1,
+  .stat2 {
+    height: 20px;
+    width: 30px;
+  }
+
+  .footer {
+    font-size: 8px;
+    margin-top: 2px;
+  }
+
+  .loading {
+    padding: 25px 0;
+    height: 30px;
+    width: 120px;
+    margin: 10px auto 10px auto;
+    font-size: 15px;
+  }
+}

@@ -54,19 +54,18 @@ select {
   font-size: 15px;
 }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 420px) {
   .starter-text {
     font-size: 15px;
   }
-}
 
-@media only screen and (max-width: 370px) {
   .createCardsForm {
     width: 200px;
+    height: 320px;
   }
 
   .note {
-    font-size: 13px;
+    font-size: 10px;
   }
 
   .starter-text {
@@ -78,7 +77,13 @@ select {
   }
 
   label {
-    font-size: 15px;
+    font-size: 13px;
+  }
+
+  input,
+  select {
+    font-size: 12px;
+    margin-bottom: 5px;
   }
 }
 

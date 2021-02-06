@@ -68,6 +68,10 @@
     width: 100%;
   }
 
+  .game .game-ui .buttons {
+    flex-direction: row;
+  }
+
   .mobile-cards {
     display: flex;
     justify-content: center;
@@ -80,6 +84,11 @@
 
   .computer {
     margin: 0 0 0 15px;
+  }
+
+  .game .no-cards {
+    height: 288px;
+    width: 175px;
   }
 
   .game .Card,
@@ -160,6 +169,14 @@
 }
 
 @media only screen and (max-width: 420px) {
+  .game {
+    margin-bottom: 0;
+  }
+
+  .game .no-cards {
+    width: 140px;
+  }
+
   .game .Card,
   .game .Card-border {
     width: 140px;
@@ -174,8 +191,12 @@
     font-size: 20px;
   }
 
+  .game .name {
+    font-size: 20px;
+  }
+
   .game .aka {
-    font-size: 12px;
+    font-size: 10px;
   }
 
   .game .alignment {
@@ -185,9 +206,23 @@
   .game #card-back-text {
     font-size: 35px;
   }
+
+  .game .stat-name1,
+  .game .stat-name2 {
+    height: 23px;
+  }
+
+  .game .stat1,
+  .game .stat2 {
+    height: 23px;
+  }
 }
 
 @media only screen and (max-width: 335px) {
+  .game .no-cards {
+    width: 110px;
+  }
+
   .score,
   .score-active {
     font-size: 18px;
@@ -196,27 +231,38 @@
   .game .Card,
   .game .Card-border {
     width: 110px;
-    height: 248px;
+    height: 228px;
   }
 
   .game .hidden-card {
     width: 90px;
-    height: 228px;
+    height: 208px;
+  }
+
+  .game #card-back-logo {
+    height: 40px;
+    width: 40px;
   }
 
   .game .stat-name1,
   .game .stat-name2 {
-    font-size: 14px;
+    font-size: 12px;
+    height: 16px;
   }
 
   .game .stat1,
   .game .stat2 {
     width: 20px;
+    height: 16px;
   }
 
   .game #photo {
     margin: 5px auto 5px auto;
-    height: 72px;
-    width: 96px;
+    height: 66px;
+    width: 88px;
+  }
+
+  .game .footer {
+    font-size: 7px;
   }
 }

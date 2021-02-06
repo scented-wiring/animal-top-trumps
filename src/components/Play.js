@@ -167,6 +167,7 @@ const Play = () => {
           message: "Could not connect to the server.",
           alertType: "Error",
         });
+        setNoCards(true);
         setLoad(false);
       });
     // eslint-disable-next-line react-hooks/exhaustive-deps

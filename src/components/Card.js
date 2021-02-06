@@ -26,7 +26,7 @@ const Card = ({
   useEffect(() => {
     let isCancelled = false;
     setLoad(true);
-    if (!defaultText) {
+    if (!defaultText && name) {
       api.search
         .getPhotos({
           query: name,
