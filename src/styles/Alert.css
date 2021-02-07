@@ -15,7 +15,7 @@
 }
 
 .Alert p {
-  margin-bottom: 23px;
+  margin: 0 5px 23px 5px;
 }
 
 .error-buttons button {
@@ -27,5 +27,9 @@
   .Alert {
     width: 200px;
     margin-top: 100px;
+  }
+
+  .Alert p {
+    font-size: 15px;
   }
 }

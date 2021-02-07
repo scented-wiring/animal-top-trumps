@@ -48,7 +48,7 @@ const addStarterDeck = (setAlert) => {
       axios.post(url, {
         name: "Snake",
         aka: "Long lad",
-        cool: 10,
+        cool: 8,
         largeness: 3,
         handsome: 7,
         alignment: "Lawful Evil",
@@ -72,15 +72,15 @@ const addStarterDeck = (setAlert) => {
       axios.post(url, {
         name: "Lion",
         aka: "The King",
-        cool: 8,
-        largeness: 7,
+        cool: 10,
+        largeness: 6,
         handsome: 10,
         alignment: "Lawful Neutral",
       }),
       axios.post(url, {
         name: "Mongoose",
         aka: "Not a kind of goose",
-        cool: 7,
+        cool: 8,
         largeness: 4,
         handsome: 10,
         alignment: "Chaotic Good",
@@ -88,7 +88,7 @@ const addStarterDeck = (setAlert) => {
       axios.post(url, {
         name: "Parrot",
         aka: "Pretty boy",
-        cool: 8,
+        cool: 7,
         largeness: 3,
         handsome: 10,
         alignment: "Neutral Good",
@@ -96,7 +96,7 @@ const addStarterDeck = (setAlert) => {
       axios.post(url, {
         name: "Toad",
         aka: "Warty",
-        cool: 8,
+        cool: 5,
         largeness: 2,
         handsome: 4,
         alignment: "Chaotic Neutral",
@@ -112,7 +112,7 @@ const addStarterDeck = (setAlert) => {
       axios.post(url, {
         name: "Owl",
         aka: "Hooter",
-        cool: 10,
+        cool: 8,
         largeness: 3,
         handsome: 10,
         alignment: "Lawful Good",
@@ -120,7 +120,7 @@ const addStarterDeck = (setAlert) => {
       axios.post(url, {
         name: "Robin",
         aka: "Tweeter",
-        cool: 7,
+        cool: 6,
         largeness: 1,
         handsome: 10,
         alignment: "Chaotic Evil",
@@ -128,7 +128,7 @@ const addStarterDeck = (setAlert) => {
       axios.post(url, {
         name: "Badger",
         aka: "Stripy Tough Guy",
-        cool: 10,
+        cool: 9,
         largeness: 4,
         handsome: 7,
         alignment: "Chaotic Evil",
@@ -144,7 +144,7 @@ const addStarterDeck = (setAlert) => {
       axios.post(url, {
         name: "Ladybird",
         aka: "Spotty",
-        cool: 4,
+        cool: 3,
         largeness: 1,
         handsome: 10,
         alignment: "Chaotic Good",
@@ -152,7 +152,7 @@ const addStarterDeck = (setAlert) => {
       axios.post(url, {
         name: "Stag Beetle",
         aka: "Small fry",
-        cool: 8,
+        cool: 7,
         largeness: 1,
         handsome: 5,
         alignment: "Neutral Evil",
