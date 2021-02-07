@@ -4,7 +4,14 @@ This app allows you to create personalised animal Top Trump cards and battle aga
 
 # Screenshots
 
-![Desktop screenshot](https://github.com/scented-wiring/animal-top-trumps/blob/master/screenshots/screenshot1.png)
+## Desktop
+
+![Desktop screenshot](https://github.com/scented-wiring/animal-top-trumps/blob/master/screenshots/desktop1.png)
+
+## Mobile
+
+![Mobile screenshot](https://github.com/scented-wiring/animal-top-trumps/blob/master/screenshots/mobile1.png)
+![Mobile screenshot](https://github.com/scented-wiring/animal-top-trumps/blob/master/screenshots/mobile2.png)
 
 ## Instructions
 
