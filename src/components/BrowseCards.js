@@ -124,6 +124,7 @@ const BrowseCards = () => {
             <button
               id="delete"
               onClick={() =>
+                !card.defaultText &&
                 setAlert({
                   message: `Delete ${card.name}? This action cannot be undone.`,
                   alertType: "Are you sure?",
