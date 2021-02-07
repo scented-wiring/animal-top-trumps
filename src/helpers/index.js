@@ -24,7 +24,7 @@ const addStarterDeck = (setAlert) => {
       axios.post(url, {
         name: "Goldfish",
         aka: "Flipper",
-        cool: 5,
+        cool: 3,
         largeness: 2,
         handsome: 7,
         alignment: "True Neutral",
@@ -32,7 +32,7 @@ const addStarterDeck = (setAlert) => {
       axios.post(url, {
         name: "Sheep",
         aka: "Sheeple",
-        cool: 4,
+        cool: 2,
         largeness: 5,
         handsome: 5,
         alignment: "Chaotic Neutral",
@@ -56,7 +56,7 @@ const addStarterDeck = (setAlert) => {
       axios.post(url, {
         name: "Elephant",
         aka: "Leg-face",
-        cool: 9,
+        cool: 7,
         largeness: 8,
         handsome: 7,
         alignment: "Chaotic Good",
@@ -72,7 +72,7 @@ const addStarterDeck = (setAlert) => {
       axios.post(url, {
         name: "Lion",
         aka: "The King",
-        cool: 10,
+        cool: 8,
         largeness: 6,
         handsome: 10,
         alignment: "Lawful Neutral",
@@ -104,7 +104,7 @@ const addStarterDeck = (setAlert) => {
       axios.post(url, {
         name: "Giraffe",
         aka: "Lanky",
-        cool: 9,
+        cool: 7,
         largeness: 9,
         handsome: 6,
         alignment: "Neutral Good",
@@ -128,7 +128,7 @@ const addStarterDeck = (setAlert) => {
       axios.post(url, {
         name: "Badger",
         aka: "Stripy Tough Guy",
-        cool: 9,
+        cool: 7,
         largeness: 4,
         handsome: 7,
         alignment: "Chaotic Evil",
